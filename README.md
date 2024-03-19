@@ -2,7 +2,7 @@
 
 ### **Aprendizado por Projeto Integrado - API**
 
-<img src="static/img/Fatec-Logo.png" style="margin-left: auto; margin-right: auto;">
+<img src="app/static/img/fatec-Logo.png" style="margin-left: auto; margin-right: auto;">
 
 ---
 
