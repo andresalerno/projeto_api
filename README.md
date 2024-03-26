@@ -60,10 +60,10 @@
 Sprint | Previsão | Status|
 |------|--------|------|
 |Kick Off | 14/03/2024 | concluído|
-|01 | a definir | pendente |
-|02|  a definir| pendente |
-|03| a definir | pendente |
-|04| a definir | pendente |
+|01 | 14/04/2024 | pendente |
+|02|  05/05/2024 | pendente |
+|03| 26/05/2024 | pendente |
+|04| 16/06/2024 | pendente |
 
 ---
 
