@@ -1,12 +1,22 @@
-version: '3.3'
+version: '3.1'
+
+
 services:
+
   ubuntu:
     container_name: ubuntu
     image: ubuntu
     restart: on-failure
     command: ['sleep', 'infinity']
 
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
   db:
+    container_name: mysql
     image: mysql:latest
     restart: always
     environment:
@@ -23,15 +33,3 @@ services:
     expose:
       # Opens port 3306 on the container
       - '3306'
-      # Where our data will be persisted
-    volumes:
-      - my-db:/var/lib/mysql
-# Names our volume
-volumes:
-  my-db:
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
