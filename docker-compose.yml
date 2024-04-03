@@ -20,6 +20,7 @@ services:
     image: mysql:latest
     restart: always
     environment:
+      MYSQL_HOST: 'localhost'
       MYSQL_DATABASE: 'db'
       # So you don't have to use root, but you can if you like
       MYSQL_USER: 'user'

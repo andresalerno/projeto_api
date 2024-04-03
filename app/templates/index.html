@@ -2,6 +2,17 @@
 
 {% block content %}
 
-    <h1>Smart Farmkkkk</h1>
+    <h1>Smart Farm</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="description" placeholder="Enter task description" required>
+        <input type="date" name="due_date" required>
+        <button type="submit">Add Task</button>
+    </form>
+    <ul>
+        {% for i in db %}
+        <li>{{ i[0] }} - Due: {{ i[1] }}</li>
+        {% endfor %}
+    </ul>
 
 {% endblock content %}
