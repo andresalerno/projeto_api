@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EBF3FF;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.options {
+	background: #081A51;
+	box-shadow: 0 0 50px rgba(0, 0, 0, .2);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    color: #EBF3FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5em;
+}
+.options .form_get {
+    display: flex;
+    flex-direction: column;
+    height: 22em;
+    justify-content: space-between;
+}
+.options .form_get div p {
+    margin-bottom: 1.8em;
+}
+input[type="date"]{
+    display: block;
+}
+
+.options .form_post {
+    display: flex;
+    flex-direction: column;
+    height: 4em;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 0.5em;
+    background-color: transparent;
+    color: #EBF3FF;
+    border: 2px solid #EBF3FF;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn:hover {
+    padding: 0.5em;
+    background-color: #EBF3FF;
+    color: #081A51;
+    border: 2px solid #EBF3FF;
+    border-radius: 5px;
+}
+
+.content {
+    padding: 4em 4em 0;
+    display: flex;
+    flex-direction: column;
+}
+.content h5 {
+    font-size: 2em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #081A51;
+    margin-bottom: 0.5em;
+}
+
+#grafico {
+    background-image: url(./temperatura_ao_longo_do_tempo.png);
+    background-position: center;
+    background-size: cover;
+}
