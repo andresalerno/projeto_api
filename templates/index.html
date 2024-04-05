@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="options">
+            <h5><a href="/">LOGO</a></h5>
+            <form method="GET" action="/obter-dados" class="form_get">
+                <div class="dates">
+                    <p>
+                        <label for="start_date">Data de início:</label>
+                        <input type="date" id="start_date" name="start_date" readonly>
+                    </p>
+                    <p>
+                        <label for="end_date">Data de término:</label>
+                        <input type="date" id="end_date" name="end_date" readonly>
+                    </p>
+                </div>
+                <div class="choices">
+                    <p>
+                        <input type="checkbox" name="temperatura" id="temperatura" value="Temperatura">
+                        <label for="temperatura">Temperatura (°C)</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" name="umidade_solo" id="umidade_solo" value="Umidade solo">
+                        <label for="umidade_solo">Umidade do solo (%)</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" name="umidade_ambiente" id="umidade_ambiente" value="Umidade Ambiente">
+                        <label for="umidade_ambiente">Umidade Ambiente (%)</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" name="volume" id="volume" value="Volume Água (L)">
+                        <label for="volume">Volume (L)</label>
+                    </p>
+                </div>
+                <div class="button">
+                    <p>
+                        <input type="submit" value="Obter Dados" class="btn" id="btn_obter">
+                    </p>
+                </div>
+            </form>
+            <form method="POST" action="/upload" class="form_post" enctype="multipart/form-data">
+                <p>
+                    <input type="file" name="arquivo_csv" id="arquivo_csv" accept=".csv">
+                </p>
+                <p>
+                    <input type="submit" value="Importar" class="btn" id="btn_importar">
+                </p>
+            </form>
+        </div>
+        <div class="main-content">
+            <h5>Dashbord</h5>
+            <div id="plotly-graph-container">
+                {{ plotly_div|safe }}
+                {{ plotly_div1|safe }}
+                {{ plotly_div2|safe }}
+                {{ plotly_div3|safe }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
