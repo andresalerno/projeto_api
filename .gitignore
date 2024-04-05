@@ -190,3 +190,4 @@ cython_debug/
 
 # Custom
 uploads/*
+!uploads/.keep
