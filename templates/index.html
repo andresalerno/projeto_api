@@ -1,68 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<header>
-    <h1>SMART FARM</h1>
-    <nav>
-        <a href="/">Início</a>
-        <a href="/Graficos">Gráficos</a>
-    </nav>
-    <div class="buttons">
-        <div class="botao"> <input type="button" value="Importar"><img src="/" alt=""></div>
-        <input type="button" value="Baixar">
-    </div>
-</header>
-
 <main>
     <div class="title">
         <h2>Dados Atuais</h2>
         <div class="atual">
-            <p>Atualizado em 12/04 ás 12:30</p>
+            <img src="../static/img/Relógio.svg" alt="">
+            <p>Atualizado em 12/04 às 12:30</p>
         </div>
     </div>
     <div class="cardflex">
         <div class="cardbox">
-            <img src="../static/img/ambiente.svg" alt="">
+            <img class="icon" src="../static/img/ambiente.svg" alt="">
             <p>Umidade do ambiente</p>
             <h1>2,1 a</h1>
             <div class="dados">
-                <img src="../static/img/positivo.svg" alt="">
-                    <p><strong>2,5%</strong> acima desde a última atualização</p>
+                <img class="graphic" src="../static/img/positivo.svg" alt="">
+                <p><strong>2,5%</strong> acima desde a última atualização</p>
             </div>
 
         </div>
         <div class="cardbox">
-            <img src="../static/img/solo.svg" alt="">
+            <img class="icon" src="../static/img/solo.svg" alt="">
             <p>Umidade do solo</p>
             <h1>9.6 a</h1>
-            <div>
-                <img src="../static/img/negativo.svg" alt="">
-                <span></span>
+            <div class="dados">
+                <img class="graphic" src="../static/img/negativo.svg" alt="">
+                <p><strong>2,1%</strong> abaixo desde a última atualização</p>
             </div>
 
         </div>
         <div class="cardbox">
-            <img src="../static/img/Termometro.svg" alt="">
+            <img class="icon" src="../static/img/Termometro.svg" alt="">
             <p>Temperatura</p>
             <h1> 32°C</h1>
-            <div>
-                <img src="../static/img/positivo.svg" alt="">
-                <span></span>
+            <div class="dados">
+                <img class="graphic" src="../static/img/positivo.svg" alt="">
+                <p><strong>2,3%</strong> acima desde a última atualização</p>
             </div>
 
         </div>
         <div class="cardbox">
-            <img src="../static/img/gota.svg" alt="">
+            <img class="icon" src="../static/img/gota.svg" alt="">
             <p>Volume água</p>
             <h1> 2kg/m³</h1>
-            <div>
-                <img src="../static/img/positivo.svg" alt="">
-                <span></span>
+            <div class="dados">
+                <img class="graphic" src="../static/img/positivo.svg" alt="">
+                <p><strong>2,5%</strong> acima desde a última atualização</p>
             </div>
-
         </div>
     </div>
 </main>
-
 
 {% endblock content %}

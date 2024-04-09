@@ -22,6 +22,7 @@ body {
     height: 100vh;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
+    gap: 1rem;
 }
 
 header {
@@ -35,6 +36,16 @@ header {
 nav {
     display: flex;
     gap: 1.2rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 5rem;
+    height: 5rem;
 }
 
 h1 {
@@ -71,7 +82,6 @@ input {
 main {
     width: 100%;
     padding: 0rem 4.8rem;
-    margin-top: 4.8rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -97,8 +107,14 @@ h2::before {
     bottom: -8px;
 }
 
+.atual{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .atual p {
-    font-size: 20px;
+    font-size: 18px;
     position: relative;
 }
 
@@ -107,8 +123,8 @@ h2::before {
     position: absolute;
     border-bottom: 3px solid #ffffff;
     width: 200px;
-    left: 0;
-    bottom: 0px;
+    right: 0;
+    bottom: -8px;
 }
 
 .cardbox h1 {
@@ -116,8 +132,8 @@ h2::before {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
-    color: rgb(0, 0, 0);
     font-size: 2.5rem;
+    color: #193713;
 }
 
 .cardgrid {
@@ -128,80 +144,11 @@ h2::before {
     margin-top: 2.5rem;
 }
 
-.carditem1 {
-    background-color: red;
-    grid-column: 1 / 3;
-    padding: 10rem 2rem;
-    border-radius: 20px;
-    text-align: center;
-}
-
 .card {
     background-color: rgb(15, 157, 161);
     height: 20rem;
     text-align: center;
     border-radius: 20px;
-
-}
-
-.sidebar {
-    background-color: var(--azul);
-    padding: 1.2rem 0.9rem;
-    color: var(--branco);
-    position: fixed;
-    height: 100%;
-    width: 20%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    overflow-x: hidden;
-}
-
-.filtro {
-    margin-top: 2.6rem;
-    background-color: var(--azul);
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-}
-
-.sidebar h1 {
-    font-size: 20px;
-}
-
-.inputItem {
-    font-size: 15px;
-}
-
-.inputItem {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-
-
-.checkboxGrupo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-
-.botao {
-    border-radius: 5px;
-    padding: 9px 20px;
-}
-
-#btn_obter {
-    border: 2px solid var(--branco);
-    background-color: transparent;
-    color: var(--branco);
-}
-
-#btn_importar {
-    background-color: var(--branco);
-    color: var(--azul);
-    border-style: none;
 }
 
 .cardflex {
@@ -217,14 +164,48 @@ h2::before {
     border-radius: 10px;
     width: 18.46rem;
     box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.50);
-    padding: 2.3rem;
+    padding: 2.3rem;    
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    align-items: center;
+}
+
+.cardbox p {
+    color: #193713;
+}
+
+.icon{
+    width: 10rem;
+    height: 6.1rem;
+    object-fit: contain;
 }
 
 .dados{
     display: flex;
+    gap: 10px;
 }
 
 .dados p{
     text-align: left;
     font-size: 16px;
+}
+
+.graphic img {
+    width: 1.6rem;
+    height: 1.2rem;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+footer p{
+    color: white;
+    font-size: 12px;
 }

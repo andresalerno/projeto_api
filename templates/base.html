@@ -10,8 +10,27 @@
     {% endblock head %}
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="../static/img/LogoSmartFarm .svg" alt="">
+            <h1>SMART FARM</h1>
+        </div>
+        <nav>
+            <a href="/">Início</a>
+            <a href="/Graficos">Gráficos</a>
+        </nav>
+        <div class="buttons">
+            <div class="botao"> <input type="button" value="Importar"><img src="/" alt=""></div>
+            <input type="button" value="Baixar">
+        </div>
+    </header>
     {% block content %}
 
     {% endblock content %}
+
+    <footer>
+        <img src="../static/img/LogoSkyFly.svg" alt="">
+        <p>© 2024 - SkyFly - Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
