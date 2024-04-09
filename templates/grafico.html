@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="sidebar">
+    <form class="filtro" method="get" action="/obter-dados">
+            <h1>Filtro</h1>
+            <div class="inputItem">
+                <label for="DataInicio">Data de Início:</label>
+                <input type="date" name="DataInicio" id="DataInicio" readonly>
+            </div>
+            <div class="inputItem">
+                <label for="DataTermino">Data de Término:</label>
+                <input type="date" name="DataTermino" id="DataTermino" readonly>
+            </div>
+            <div class="checkboxGrupo">
+                <div class="checkboxItem">
+                    <input type="checkbox" name="Temperatura" id="Temperatura" value="Temperatura">
+                    <label for="Temperatura">Temperatura (°C)</label>
+                </div>
+                <div class="checkboxItem">
+                    <input type="checkbox" name="UmidadeSolo" id="UmidadeSolo" value="UmidadeSolo">
+                    <label for="UmidadeSolo">Umidade do Solo</label>
+                </div>
+                <div class="checkboxItem">
+                    <input type="checkbox" name="UmidadeAmbiente" id="UmidadeAmbiente" value="UmidadeAmbiente">
+                    <label for="UmidadeAmbiente">Umidade do Ambiente</label>
+                </div>
+                <div class="checkboxItem">
+                    <input type="checkbox" name="value" id="Volume" value="Volume">
+                    <label for="Volume">Volume (ml)</label>
+                </div>
+            </div>
+            <input type="submit" value="Obter Dados" class="botao" id="btn_obter">
+        </form>
+        <form action="post" action="/action" class="btn_importar" enctype="multipart/form-data">
+            <input type="submit" value="Importar" class="botao" id="btn_importar">
+            <input type="file" name="arquivo_csv" id="arquivo_csv" accept=".csv">
+        </form>
+    
+</nav>
+
+<div class="content">
+    <header class="header">
+        <h1>Dashboard</h1>
+    </header>
+
+    <nav class="navHorizontal">
+        <input type="submit" value="Gráfico" class="botaoNav" style="background-color:#183379;">
+        <input type="submit" value="Tabela" class="botaoNav" style="background-color:#D9D9D9;">
+    
+    </nav>
+
+    <main>
+        <div class="cardgrid">
+            <div class="carditem1">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+            <div class="card">
+                <p>a</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock content %}
