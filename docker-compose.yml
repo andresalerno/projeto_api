@@ -1,36 +1,24 @@
-version: '3.1'
-
-
+version: "2"
 services:
+  app:
+    build: ./app
+    links:
+      - db
+    ports:
+      - "5000:5000"
 
-  ubuntu:
-    container_name: ubuntu
-    image: ubuntu
-    restart: on-failure
-    command: ['sleep', 'infinity']
+  db:
+    image: mysql:5.7
+    ports:
+      - "32000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
 
   adminer:
+    container_name: adminer
     image: adminer
     restart: always
     ports:
-      - 8080:8080
-
-  db:
-    container_name: mysql
-    image: mysql:latest
-    restart: always
-    environment:
-      MYSQL_HOST: 'localhost'
-      MYSQL_DATABASE: 'db'
-      # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'user'
-      # You can use whatever password you like
-      MYSQL_PASSWORD: 'password'
-      # Password for root access
-      MYSQL_ROOT_PASSWORD: 'password'
-    ports:
-      # <Port exposed> : <MySQL Port running inside container>
-      - '3306:3306'
-    expose:
-      # Opens port 3306 on the container
-      - '3306'
+      - '8080:8080'
