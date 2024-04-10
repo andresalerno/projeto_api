@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+  <style type="text/css">
+    main { 
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 1rem;
+    }
+    /* a:nth-child(2) {
+        color: white;
+        border-bottom: 2px solid #ffffff;
+        padding-bottom: 1px;
+    } */
+  </style>
+{% endblock %}
+
+{% block content %}
+<main>
+  <form class="filtro" method="get" action="/obter-dados">
+      <h1>Filtro</h1>
+      <div class="forms">
+        <div class="inputItem">
+          <label for="DataInicio">Data de início:</label>
+          <input type="date" name="DataInicio" id="Datas" readonly />
+        </div>
+        <div class="inputItem">
+          <label for="DataTermino">Data de término:</label>
+          <input type="date" name="DataTermino" id="Datas" readonly />
+        </div>
+        <div class="botoesFiltro">
+          <button type="button" value="Limpar" id="Limpar">
+            <p>Limpar</p>
+          </button>
+          <button type="button" value="Filtrar" id="Filtrar">
+            <img id="IconFiltrar" src="/static/img/filtro.svg" alt="">
+            <p>Filtrar</p>
+          </button>
+        </div>
+      </div>
+  </form>
+
+    <div class="cardgrid">
+      <div class="card">
+        {{ plotly_div|safe }}
+      </div>
+      <div class="card">
+        {{ plotly_div1|safe }}
+      </div>
+      <div class="card">
+        {{ plotly_div2|safe }}
+      </div>
+      <div class="card">
+        {{ plotly_div3|safe }}
+      </div>
+    </div>
+</main>
+
+{% endblock content %}

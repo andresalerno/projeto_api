@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="text/css" href="{{ url_for('static', filename='css/normalize.css')}}">
+    <title>Smart Farm</title>
+    {% endblock head %}
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../static/img/LogoSmartFarm .svg" alt="">
+            <h1>SMART FARM</h1>
+        </div>
+        <nav>
+            <a href="/">Início</a>
+            <a href="/Graficos">Gráficos</a>
+        </nav>
+        <div class="buttons">
+            <button type="button" value="Importar">
+                <img id="Importar" src="/static/img/importar.svg" alt="">
+                <p>Importar</p>
+            </button>
+            <button type="button" value="Baixar">
+                <img id="Baixar" src="/static/img/baixar.svg" alt="">
+                <p>Baixar</p>
+            </button>
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock content %}
+
+    <footer>
+        <img src="../static/img/LogoSkyFly.svg" alt="">
+        <p>© 2024 - SkyFly - Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
