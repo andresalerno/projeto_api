@@ -38,12 +38,12 @@ nav {
     gap: 1.2rem;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
 }
 
-.logo img{
+.logo img {
     width: 5rem;
     height: 5rem;
 }
@@ -72,6 +72,24 @@ a:hover {
 .buttons {
     display: flex;
     gap: 1.4rem;
+}
+
+button {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+}
+
+#Importar {
+    height: 15px;
+}
+
+#Baixar {
+    width: 20px;
 }
 
 input {
@@ -107,7 +125,7 @@ h2::before {
     bottom: -8px;
 }
 
-.atual{
+.atual {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -138,7 +156,7 @@ h2::before {
 
 .cardgrid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 30rem 18rem;
     grid-auto-columns: 100px;
     gap: 1.0rem;
     margin-top: 2.5rem;
@@ -164,7 +182,7 @@ h2::before {
     border-radius: 10px;
     width: 18.46rem;
     box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.50);
-    padding: 2.3rem;    
+    padding: 2.3rem;
     display: flex;
     flex-direction: column;
     gap: 19px;
@@ -175,18 +193,18 @@ h2::before {
     color: #193713;
 }
 
-.icon{
+.icon {
     width: 10rem;
     height: 6.1rem;
     object-fit: contain;
 }
 
-.dados{
+.dados {
     display: flex;
     gap: 10px;
 }
 
-.dados p{
+.dados p {
     text-align: left;
     font-size: 16px;
 }
@@ -196,7 +214,7 @@ h2::before {
     height: 1.2rem;
 }
 
-footer{
+footer {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -205,7 +223,7 @@ footer{
     align-items: center;
 }
 
-footer p{
+footer p {
     color: white;
     font-size: 12px;
 }
