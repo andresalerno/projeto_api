@@ -7,15 +7,9 @@
     box-sizing: border-box;
 }
 
-:root {
-    --azul: #183379;
-    --cinza: #D9D9D9;
-    --branco: #FEFEFE;
-}
-
 body {
     background: rgb(46, 87, 37);
-    background: linear-gradient(297deg, rgba(46, 87, 37, 1) 0%, rgba(113, 163, 52, 1) 100%);
+    background: linear-gradient(297deg, rgba(46, 87, 37, 1) 0%, rgba(113, 163, 52, 1) 100%)fixed;
     display: flex;
     flex-direction: column;
     width: 100vw;
@@ -29,7 +23,7 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1.2rem 2.5rem;
+    padding: 1.2rem 3rem;
     align-items: center;
 }
 
@@ -69,6 +63,7 @@ a:hover {
     color: white;
 }
 
+
 .buttons {
     display: flex;
     gap: 1.4rem;
@@ -82,6 +77,12 @@ button {
     padding: 10px 15px;
     border-radius: 10px;
     border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+button:hover{
+    background-color: #d2d2d2;
+    cursor: pointer;
 }
 
 #Importar {
@@ -120,7 +121,7 @@ h2::before {
     content: "";
     position: absolute;
     border-bottom: 3px solid #ffffff;
-    width: 200px;
+    width: 280px;
     left: 0;
     bottom: -8px;
 }
@@ -156,17 +157,18 @@ h2::before {
 
 .cardgrid {
     display: grid;
-    grid-template-columns: 30rem 18rem;
+    grid-template-columns: 28rem 28rem;
     grid-auto-columns: 100px;
     gap: 1.0rem;
-    margin-top: 2.5rem;
+    width: 100%;
 }
 
 .card {
-    background-color: rgb(15, 157, 161);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
     height: 20rem;
-    text-align: center;
-    border-radius: 20px;
+    border-radius: 10px;
+    padding: 1.1rem;
 }
 
 .cardflex {
@@ -181,8 +183,8 @@ h2::before {
     text-align: center;
     border-radius: 10px;
     width: 18.46rem;
-    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.50);
-    padding: 2.3rem;
+    box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
+    padding: 2.3rem 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 19px;
@@ -215,7 +217,7 @@ h2::before {
 }
 
 footer {
-    position: fixed;
+    position: block;
     bottom: 0;
     right: 0;
     width: 100%;
@@ -226,4 +228,72 @@ footer {
 footer p {
     color: white;
     font-size: 12px;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    background-color: #19371320;
+    border-radius: 10px;
+    padding: 15px 15px;
+    align-items: right;
+    color: #ffffff;
+    height: 40%;
+}
+
+.filtro h1{
+    content: "";
+    border-bottom: 3px solid #ffffff;
+    width: 80%;
+    left: 0;
+    bottom: -8px;
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+input[type="date"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+#Datas{
+    border-radius: 6px;
+    border-style: none;
+    padding: 5px 13px;
+}
+
+.botoesFiltro{
+    display: flex;
+    justify-content: space-between;
+    gap: 7px;
+}
+
+#Filtrar{
+    background-color: #ffffff;
+    padding: 5px 18px;
+    border-radius: 5px;
+}
+
+#Filtrar:hover{
+    background-color: #d2d2d2;
+    cursor: pointer;
+}
+
+#Limpar{
+    text-align: left;
+    background-color: transparent;
+    color: white;
+}
+
+#Limpar:hover{
+    background-color:#2d452834;
 }

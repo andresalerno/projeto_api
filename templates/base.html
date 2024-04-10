@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     {% block head %}
     <meta charset="UTF-8">
@@ -9,6 +10,7 @@
     <title>Smart Farm</title>
     {% endblock head %}
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -20,10 +22,12 @@
             <a href="/Graficos">Gráficos</a>
         </nav>
         <div class="buttons">
-             <button type="button" value="Importar">
-                <img id="Importar" src="/static/img/importar.svg" alt="">
-                <p>Importar</p>
-            </button>
+            <form method="POST" action="#" class="form_post" enctype="multipart/form-data">
+                <button type="button" value="Importar">
+                    <img id="Importar" src="/static/img/importar.svg" alt="">
+                    <p>Importar</p>
+                </button>
+            </form>
             <button type="button" value="Baixar">
                 <img id="Baixar" src="/static/img/baixar.svg" alt="">
                 <p>Baixar</p>
@@ -39,4 +43,5 @@
         <p>© 2024 - SkyFly - Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>

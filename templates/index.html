@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
 
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    a:first-child {
+        color: white;
+        border-bottom: 2px solid #ffffff;
+        padding-bottom: 1px;
+    }
+    body{
+        overflow-y: hidden;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <main>
     <div class="title">
-        <h2>Dados Atuais</h2>
+        <h2>Dados Atuais - Estufa</h2>
         <div class="atual">
-            <img src="../static/img/Relógio.svg" alt="">
+            <img src="../static/img/Relógio.svg" alt="Relógio Icon" width="25px" height="25px">
             <p>Atualizado em 12/04 às 12:30</p>
         </div>
     </div>
