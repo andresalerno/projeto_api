@@ -1,12 +1,21 @@
-from flask import Flask, render_template, send_from_directory
-import plotly.graph_objects as go
-import plotly.io as pio
+from flask import Flask, render_template, send_from_directory, request, redirect
+
 from gerar_grafico import grafico, gerar_tabela, obter_ultimos_valores
+from Classes.RegisterClass import Register
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods = ["GET", "POST"])
 def main():
+
+    if request.method == "POST":
+        csv_recebido = request.files['arquivo_csv']
+        if Register.check_csv(csv_recebido.filename):
+            redirect("/")
+        csv_recebido = str(csv_recebido.read().decode())
+        Register.setup_list(csv_recebido)
+
+
     dados = obter_ultimos_valores("Umidade Ambiente")
     dados1 = obter_ultimos_valores("Umidade solo")
     dados2 = obter_ultimos_valores("Temperatura")

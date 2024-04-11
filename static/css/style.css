@@ -63,7 +63,6 @@ a:hover {
     color: white;
 }
 
-
 .buttons {
     display: flex;
     gap: 1.4rem;
@@ -80,12 +79,40 @@ button {
     font-family: 'Poppins', sans-serif;
 }
 
-
 button:hover{
     background-color: #d2d2d2;
     cursor: pointer;
 }
 
+.InputFile {
+    position: relative;
+    display: inline-block;
+    display: inline-block;
+    background-color: #F0F0F0;
+    color: black;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+  
+.InputFile input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+  
+.InputFile:hover {
+    border: none;
+    background-color: #d2d2d2;
+    cursor: pointer;
+}
+  
 #Importar {
     height: 15px;
 }
@@ -95,9 +122,11 @@ button:hover{
 }
 
 input {
-    background-color: FFFFFF;
+    background-color: #FFFFFF;
 
 }
+
+
 
 main {
     width: 100%;
