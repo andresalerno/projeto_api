@@ -12,8 +12,9 @@ body {
     background: linear-gradient(297deg, rgba(46, 87, 37, 1) 0%, rgba(113, 163, 52, 1) 100%)fixed;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-    height: 100vh;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
     gap: 1rem;
@@ -35,11 +36,12 @@ nav {
 .logo {
     display: flex;
     align-items: center;
+    gap: 7px;
 }
 
 .logo img {
-    width: 5rem;
-    height: 5rem;
+    height: 2rem;
+
 }
 
 h1 {
@@ -160,7 +162,7 @@ h2::before {
 .cardgrid {
     display: grid;
     grid-template-columns: 28rem 28rem;
-    grid-auto-columns: 100px;
+    grid-auto-columns: 6.25rem;
     gap: 1.0rem;
     width: 100%;
 }
@@ -176,7 +178,6 @@ h2::before {
 .cardflex {
     display: flex;
     gap: 2rem;
-    justify-content: space-between;
 }
 
 .cardbox {
@@ -219,9 +220,8 @@ h2::before {
 }
 
 footer {
-    position: block;
+    position: relative;
     bottom: 0;
-    right: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -238,7 +238,7 @@ footer p {
     gap: 1.6rem;
     background-color: #19371320;
     border-radius: 10px;
-    padding: 15px 15px;
+    padding: 0.93rem 0.93rem;
     align-items: right;
     color: #ffffff;
     height: 40%;
@@ -277,6 +277,10 @@ input[type="date"] {
     display: flex;
     justify-content: space-between;
     gap: 7px;
+}
+
+#Filtrar{
+    padding: 0.25rem 0.9rem;
 }
 
 #Filtrar:hover{
