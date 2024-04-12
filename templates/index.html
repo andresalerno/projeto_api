@@ -11,18 +11,13 @@
     body{
         overflow-y: hidden;
     }
-    footer {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-    }
 </style>
 {% endblock %}
 
 {% block content %}
 <main>
     <div class="title">
-        <h2>Dados Atuais - Estufa</h2>
+        <h2>Dados atuais - Estufa</h2>
         <div class="atual">
             <img src="../static/img/Relógio.svg" alt="Relógio Icon" width="25px" height="25px">
             <p>Atualizado em 12/04 às 12:30</p>
@@ -32,7 +27,7 @@
         <div class="cardbox">
             <img class="icon" src="../static/img/ambiente.svg" alt="">
             <p>Umidade do ambiente</p>
-            <h1>{{ dados }} a</h1>
+            <h1>2,1 a</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/positivo.svg" alt="">
                 <p><strong>2,5%</strong> acima desde a última atualização</p>
@@ -42,7 +37,7 @@
         <div class="cardbox">
             <img class="icon" src="../static/img/solo.svg" alt="">
             <p>Umidade do solo</p>
-            <h1>{{ dados1 }} a</h1>
+            <h1>9.6 a</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/negativo.svg" alt="">
                 <p><strong>2,1%</strong> abaixo desde a última atualização</p>
@@ -52,7 +47,7 @@
         <div class="cardbox">
             <img class="icon" src="../static/img/Termometro.svg" alt="">
             <p>Temperatura</p>
-            <h1> {{ dados2 }}°C</h1>
+            <h1> 32°C</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/positivo.svg" alt="">
                 <p><strong>2,3%</strong> acima desde a última atualização</p>
@@ -62,7 +57,7 @@
         <div class="cardbox">
             <img class="icon" src="../static/img/gota.svg" alt="">
             <p>Volume água</p>
-            <h1> {{ dados3 }}kg/m³</h1>
+            <h1> 2kg/m³</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/positivo.svg" alt="">
                 <p><strong>2,5%</strong> acima desde a última atualização</p>

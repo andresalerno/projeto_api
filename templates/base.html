@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <link rel="text/css" href="{{ url_for('static', filename='css/normalize.css')}}">
+    <link rel="icon" href="../static/img/LogoSmartFarmNav.svg"></link>
     <title>Smart Farm</title>
     {% endblock head %}
 </head>
@@ -14,7 +15,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="../static/img/LogoSmartFarm .svg" alt="">
+            <img src="../static/img/LogoSmartFarm.svg" alt="">
             <h1>SMART FARM</h1>
         </div>
         <nav>
@@ -23,7 +24,6 @@
         </nav>
         <div class="buttons">
             <form action = "#" method = "POST" enctype="multipart/form-data">
-                
                 <div class="InputFile">
                     <input type="file"  value="Importar" name="arquivo_csv" accept=".csv" onchange="form.submit()">
                     <label for="fileInput">
@@ -33,20 +33,12 @@
                     
                 </div>
             </form>
-
-            <!-- <button type="button" value="Importar">
-                <img id="Importar" src="/static/img/importar.svg" alt="">
-                <p>Importar</p>
-            </button>
-            -->
-             
             <button type="button" value="Baixar">
                 <img id="Baixar" src="/static/img/baixar.svg" alt="">
                 <p>Baixar</p>
             </button>
         </div>
     </header>
-
     {% block content %}
 
     {% endblock content %}

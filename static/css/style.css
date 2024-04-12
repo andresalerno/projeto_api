@@ -12,8 +12,9 @@ body {
     background: linear-gradient(297deg, rgba(46, 87, 37, 1) 0%, rgba(113, 163, 52, 1) 100%)fixed;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-    height: 100vh;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
     gap: 1rem;
@@ -35,11 +36,12 @@ nav {
 .logo {
     display: flex;
     align-items: center;
+    gap: 7px;
 }
 
 .logo img {
-    width: 5rem;
-    height: 5rem;
+    height: 2rem;
+
 }
 
 h1 {
@@ -63,6 +65,7 @@ a:hover {
     color: white;
 }
 
+
 .buttons {
     display: flex;
     gap: 1.4rem;
@@ -73,10 +76,12 @@ button {
     gap: 5px;
     align-items: center;
     justify-content: center;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 4px 25px;
     border: none;
     font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-weight: 600;
 }
 
 button:hover{
@@ -96,7 +101,7 @@ button:hover{
     border: none;
     font-family: 'Poppins', sans-serif;
 }
-  
+
 .InputFile input[type="file"] {
     position: absolute;
     left: 0;
@@ -106,13 +111,13 @@ button:hover{
     height: 100%;
     cursor: pointer;
 }
-  
+
 .InputFile:hover {
     border: none;
     background-color: #d2d2d2;
     cursor: pointer;
 }
-  
+
 #Importar {
     height: 15px;
 }
@@ -125,8 +130,6 @@ input {
     background-color: #FFFFFF;
 
 }
-
-
 
 main {
     width: 100%;
@@ -187,9 +190,8 @@ h2::before {
 
 .cardgrid {
     display: grid;
-    /* grid-template-columns: 28rem 28rem; */
-    grid-template-columns: auto auto;
-    grid-auto-columns: 100px;
+    grid-template-columns: 28rem 28rem;
+    grid-auto-columns: 6.25rem;
     gap: 1.0rem;
     width: 100%;
 }
@@ -197,7 +199,7 @@ h2::before {
 .card {
     background-color: rgb(255, 255, 255);
     box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
-    height: auto;
+    height: 20rem;
     border-radius: 10px;
     padding: 1.1rem;
 }
@@ -205,7 +207,6 @@ h2::before {
 .cardflex {
     display: flex;
     gap: 2rem;
-    justify-content: space-between;
 }
 
 .cardbox {
@@ -248,9 +249,8 @@ h2::before {
 }
 
 footer {
-    position: block;
+    position: relative;
     bottom: 0;
-    right: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -267,7 +267,7 @@ footer p {
     gap: 1.6rem;
     background-color: #19371320;
     border-radius: 10px;
-    padding: 15px 15px;
+    padding: 0.93rem 0.93rem;
     align-items: right;
     color: #ffffff;
     height: 40%;
@@ -309,9 +309,7 @@ input[type="date"] {
 }
 
 #Filtrar{
-    background-color: #ffffff;
-    padding: 5px 18px;
-    border-radius: 5px;
+    padding: 0.25rem 0.9rem;
 }
 
 #Filtrar:hover{
