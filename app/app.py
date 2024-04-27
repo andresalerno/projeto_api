@@ -2,6 +2,7 @@ from flask import Flask, render_template, send_from_directory, request, redirect
 
 from gerar_grafico import grafico, gerar_tabela, obter_ultimos_valores
 from Classes.RegisterClass import Register
+from Classes.ConnClass import *
 
 app = Flask(__name__)
 
@@ -22,8 +23,9 @@ def main():
     dados3 = obter_ultimos_valores("Volume Água (L)")
     return render_template('index.html', dados=dados, dados1=dados1, dados2=dados2, dados3=dados3)
 
-@app.route('/Graficos')
+@app.route('/Graficos', methods = ["GET", "POST"])
 def especific():
+    criar_csv()
     div_html = grafico("Temperatura")
     div_html1 = grafico("Umidade solo") 
     div_html2 = grafico("Umidade Ambiente") 
