@@ -92,14 +92,13 @@ button:hover{
 .InputFile {
     position: relative;
     display: inline-block;
-    display: inline-block;
-    background-color: #F0F0F0;
+    background-color: #ffffff;
     color: black;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
+    padding: 4px 25px;
+    border-radius: 5px;
     border: none;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .InputFile input[type="file"] {
@@ -115,8 +114,8 @@ button:hover{
 .InputFile:hover {
     border: none;
     background-color: #d2d2d2;
-    cursor: pointer;
 }
+
 
 #Importar {
     height: 15px;
@@ -128,7 +127,6 @@ button:hover{
 
 input {
     background-color: #FFFFFF;
-
 }
 
 main {
@@ -199,7 +197,7 @@ h2::before {
 .card {
     background-color: rgb(255, 255, 255);
     box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
-    height: 20rem;
+    height: auto;
     border-radius: 10px;
     padding: 1.1rem;
 }
