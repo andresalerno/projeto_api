@@ -89,34 +89,6 @@ button:hover{
     cursor: pointer;
 }
 
-.InputFile {
-    position: relative;
-    display: inline-block;
-    background-color: #ffffff;
-    color: black;
-    padding: 4px 25px;
-    border-radius: 5px;
-    border: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
-
-.InputFile input[type="file"] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-}
-
-.InputFile:hover {
-    border: none;
-    background-color: #d2d2d2;
-}
-
-
 #Importar {
     height: 15px;
 }
@@ -126,7 +98,7 @@ button:hover{
 }
 
 input {
-    background-color: #FFFFFF;
+    background-color: FFFFFF;
 
 }
 
@@ -198,7 +170,7 @@ h2::before {
 .card {
     background-color: rgb(255, 255, 255);
     box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
-    height: auto;
+    height: 20rem;
     border-radius: 10px;
     padding: 1.1rem;
 }

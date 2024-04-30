@@ -23,14 +23,11 @@
             <a href="/Graficos">Gráficos</a>
         </nav>
         <div class="buttons">
-            <form action = "#" method = "POST" enctype="multipart/form-data">
-                <div class="InputFile">
-                    <input type="file"  value="Importar" name="arquivo_csv" accept=".csv" onchange="form.submit()">
-                    <label for="fileInput">
-                        <img id="Importar" src="/static/img/importar.svg" alt="">
-                        Importar
-                    </label>
-                </div>
+            <form method="POST" action="#" class="form_post" enctype="multipart/form-data">
+                <button type="button" value="Importar">
+                    <img id="Importar" src="/static/img/importar.svg" alt="">
+                    <p>Importar</p>
+                </button>
             </form>
             <button type="button" value="Baixar">
                 <img id="Baixar" src="/static/img/baixar.svg" alt="">
