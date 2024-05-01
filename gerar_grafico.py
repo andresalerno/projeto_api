@@ -40,7 +40,8 @@ def grafico(dado="Temperatura"):
         xaxis_title='Data e Hora',
         yaxis_title=dado,
         margin=dict(l=20, r=20, t=20, b=20),  # Margens menores para aumentar a área de plotagem
-        autosize=True
+        autosize=True,
+        plot_bgcolor='white'
     )
 
     config = {'displayModeBar': False, 'responsive': True}

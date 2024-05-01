@@ -17,6 +17,7 @@ body {
     width: 100vw;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
+    overflow-y:scroll;
     gap: 1rem;
 }
 
@@ -28,6 +29,7 @@ header {
     align-items: center;
 }
 
+/* Navbar */
 nav {
     display: flex;
     gap: 1.2rem;
@@ -84,7 +86,7 @@ button {
     font-weight: 600;
 }
 
-button:hover{
+button:hover {
     background-color: #d2d2d2;
     cursor: pointer;
 }
@@ -98,18 +100,20 @@ button:hover{
 }
 
 input {
-    background-color: FFFFFF;
+    background-color: #FFFFFF;
 
 }
 
+
 main {
-    width: 100%;
     padding: 0rem 4.8rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 100%;
 }
 
+/* Index */
 .title {
     color: white;
     display: flex;
@@ -150,34 +154,11 @@ h2::before {
     bottom: -8px;
 }
 
-.cardbox h1 {
-    font-size: 25px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 2.5rem;
-    color: #193713;
-}
-
-.cardgrid {
-    display: grid;
-    grid-template-columns: 28rem 28rem;
-    grid-auto-columns: 6.25rem;
-    gap: 1.0rem;
-    width: 100%;
-}
-
-.card {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
-    height: 20rem;
-    border-radius: 10px;
-    padding: 1.1rem;
-}
-
 .cardflex {
     display: flex;
-    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .cardbox {
@@ -185,7 +166,7 @@ h2::before {
     height: 21.476rem;
     text-align: center;
     border-radius: 10px;
-    width: 18.46rem;
+    width: 18rem;
     box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
     padding: 2.3rem 1.3rem;
     display: flex;
@@ -195,6 +176,15 @@ h2::before {
 }
 
 .cardbox p {
+    color: #193713;
+}
+
+.cardbox h1 {
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5rem;
     color: #193713;
 }
 
@@ -219,17 +209,20 @@ h2::before {
     height: 1.2rem;
 }
 
-footer {
-    position: relative;
-    bottom: 0;
+
+/* Gráfico */
+.cardgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, auto));
+    gap: 1.0rem;
     width: 100%;
-    display: flex;
-    align-items: center;
 }
 
-footer p {
-    color: white;
-    font-size: 12px;
+.card {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
+    border-radius: 10px;
+    padding: 1.1rem;
 }
 
 .filtro {
@@ -244,7 +237,7 @@ footer p {
     height: 40%;
 }
 
-.filtro h1{
+.filtro h1 {
     content: "";
     border-bottom: 3px solid #ffffff;
     width: 80%;
@@ -252,13 +245,13 @@ footer p {
     bottom: -8px;
 }
 
-.forms{
+.forms {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
 }
 
-input:focus{
+input:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
@@ -267,33 +260,79 @@ input[type="date"] {
     font-family: 'Poppins', sans-serif;
 }
 
-#Datas{
+#Datas {
     border-radius: 6px;
     border-style: none;
     padding: 5px 13px;
 }
 
-.botoesFiltro{
+.botoesFiltro {
     display: flex;
     justify-content: space-between;
     gap: 7px;
 }
 
-#Filtrar{
+#Filtrar {
     padding: 0.25rem 0.9rem;
 }
 
-#Filtrar:hover{
+#Filtrar:hover {
     background-color: #d2d2d2;
     cursor: pointer;
 }
 
-#Limpar{
+#Limpar {
     text-align: left;
     background-color: transparent;
     color: white;
 }
 
-#Limpar:hover{
-    background-color:#2d452834;
+#Limpar:hover {
+    background-color: #2d452834;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    color: white;
+    font-size: 12px;
+}
+
+/* Responsavidade */
+
+@media (max-width: 703px) {
+    .title {
+        flex-direction: column;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .atual p::before {
+        content: "";
+        border: none;
+    }
+
+    h2::before {
+        width: 250px;
+    }
+
+    .cardbox {
+        background-color: rgb(255, 255, 255);
+        height: 21.476rem;
+        text-align: center;
+        border-radius: 10px;
+        width: 18rem;
+        box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
+        padding: 1.0rem 1.3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+        align-items: center;
+    }
 }
