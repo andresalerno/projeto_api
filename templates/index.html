@@ -3,13 +3,17 @@
 {% block head %}
 {{ super() }}
 <style type="text/css">
-    a:first-child {
-        color: white;
-        border-bottom: 2px solid #ffffff;
-        padding-bottom: 1px;
+    #link-Inicio {
+        color: rgb(255, 255, 255) !important;
+        border-bottom: 2px solid #ffffff !important;
+        padding-bottom: 1px !important;
     }
-    body{
-        overflow-y: hidden;
+
+    @media (max-width: 768px) {
+        #link-Inicio{
+        color: #44762B !important;
+        border-bottom: 2px solid #44762B!important;
+    }
     }
 </style>
 {% endblock %}
@@ -26,7 +30,7 @@
     <div class="cardflex">
         <div class="cardbox">
             <img class="icon" src="../static/img/ambiente.svg" alt="">
-            <p>Umidade do ambiente</p>
+            <p><strong> Umidade do ambiente </strong></p>
             <h1>2,1 a</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/positivo.svg" alt="">
@@ -36,7 +40,7 @@
         </div>
         <div class="cardbox">
             <img class="icon" src="../static/img/solo.svg" alt="">
-            <p>Umidade do solo</p>
+            <p><strong> Umidade do solo</strong></p>
             <h1>9.6 a</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/negativo.svg" alt="">
@@ -46,7 +50,7 @@
         </div>
         <div class="cardbox">
             <img class="icon" src="../static/img/Termometro.svg" alt="">
-            <p>Temperatura</p>
+            <p><strong> Temperatura </strong></p>
             <h1> 32°C</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/positivo.svg" alt="">
@@ -56,7 +60,7 @@
         </div>
         <div class="cardbox">
             <img class="icon" src="../static/img/gota.svg" alt="">
-            <p>Volume água</p>
+            <p> <strong> Volume água </strong></p>
             <h1> 2kg/m³</h1>
             <div class="dados">
                 <img class="graphic" src="../static/img/positivo.svg" alt="">

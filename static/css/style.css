@@ -10,80 +10,60 @@
 body {
     background: rgb(46, 87, 37);
     background: linear-gradient(297deg, rgba(46, 87, 37, 1) 0%, rgba(113, 163, 52, 1) 100%)fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
+    min-height: 100%;
     font-family: "DM Sans", sans-serif;
     overflow-x: hidden;
-    overflow-y:scroll;
+    overflow-y: scroll;
     gap: 1rem;
-}
-
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1.2rem 3rem;
-    align-items: center;
 }
 
 /* Navbar */
 nav {
     display: flex;
-    gap: 1.2rem;
-}
-
-.logo {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 7px;
+    width: 100%;
+    padding: 1rem 2rem !important;
 }
 
-.logo img {
-    height: 2rem;
-
-}
-
-h1 {
-    font-size: 25px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    color: white;
+.navbar-nav {
+    justify-content: center;
+    flex-grow: 1;
+    gap: 0.75rem;
+    padding-right: 1rem;
 }
 
 a {
-    text-decoration: none;
-    color: black;
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 20px;
+    text-decoration: none !important;
+    color: #193713 !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600 !important;
+    font-style: normal !important; 
+    font-size: 20px !important;
 }
 
 a:hover {
-    color: white;
+    color: white !important;
 }
 
 
-.buttons {
+.d-flex {
     display: flex;
-    gap: 1.4rem;
+    gap: 1rem;
 }
 
-button {
+.btn {
     display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-    padding: 4px 25px;
-    border: none;
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffffff;
-    border-radius: 5px;
-    font-weight: 600;
+    gap: 5rem !important;
+    font-size: 14px !important;
+    font-family: 'Poppins', sans-serif !important;
+
+}
+
+button img {
+    margin-right: 0.2rem;
+    width: 1rem;
 }
 
 button:hover {
@@ -91,21 +71,43 @@ button:hover {
     cursor: pointer;
 }
 
-#Importar {
-    height: 15px;
+container-fluid {
+    align-items: center;
 }
 
-#Baixar {
-    width: 20px;
+.nav-item{
+    color: white;
 }
 
-input {
-    background-color: #FFFFFF;
-
+.navbar-brand {
+    display: flex;
+    align-items: center;
 }
 
+.navbar-brand img {
+    margin-right: 10px;
+    height: 2rem;
+}
+
+.navbar-brand h1 {
+    margin: 0;
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+}
+
+.logo-Offcanvas{
+    visibility: hidden;
+}
+
+.logo-Offcanvas img{
+    width: 0px;
+}
 
 main {
+    margin-top: 1rem;
     padding: 0rem 4.8rem;
     display: flex;
     flex-direction: column;
@@ -121,22 +123,22 @@ main {
 }
 
 h2 {
-    font-size: 24px;
-    position: relative;
+    font-size: 22px !important;
+    position:relative;
+
 }
 
 h2::before {
     content: "";
     position: absolute;
     border-bottom: 3px solid #ffffff;
-    width: 280px;
+    width: 120%;
     left: 0;
-    bottom: -8px;
+    bottom: -2px;
 }
 
 .atual {
     display: flex;
-    align-items: center;
     gap: 5px;
 }
 
@@ -154,6 +156,10 @@ h2::before {
     bottom: -8px;
 }
 
+.atual img{
+    margin-top: 3px;
+}
+
 .cardflex {
     display: flex;
     justify-content: center;
@@ -163,16 +169,16 @@ h2::before {
 
 .cardbox {
     background-color: rgb(255, 255, 255);
-    height: 21.476rem;
-    text-align: center;
+    text-align:center;
     border-radius: 10px;
-    width: 18rem;
+    width: 16.1rem;
     box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
-    padding: 2.3rem 1.3rem;
+    padding: 2rem 1.3rem;
     display: flex;
     flex-direction: column;
     gap: 19px;
     align-items: center;
+    justify-content: center;
 }
 
 .cardbox p {
@@ -228,7 +234,7 @@ h2::before {
 .filtro {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 0.5rem;
     background-color: #19371320;
     border-radius: 10px;
     padding: 0.93rem 0.93rem;
@@ -238,9 +244,13 @@ h2::before {
 }
 
 .filtro h1 {
+    font-size: 28px;
+}
+
+.filtro h1 {
     content: "";
     border-bottom: 3px solid #ffffff;
-    width: 80%;
+    width: 40%;
     left: 0;
     bottom: -8px;
 }
@@ -249,6 +259,7 @@ h2::before {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
+    background-color: aqua;
 }
 
 input:focus {
@@ -258,6 +269,7 @@ input:focus {
 
 input[type="date"] {
     font-family: 'Poppins', sans-serif;
+    width: 100%;
 }
 
 #Datas {
@@ -284,11 +296,12 @@ input[type="date"] {
 #Limpar {
     text-align: left;
     background-color: transparent;
-    color: white;
+    color: white !important;
+    text-decoration: none !important;
 }
 
 #Limpar:hover {
-    background-color: #2d452834;
+    background-color: #18361234 !important;
 }
 
 /* Footer */
@@ -296,6 +309,7 @@ footer {
     width: 100%;
     display: flex;
     align-items: center;
+    margin-top: 2rem;
 }
 
 footer p {
@@ -319,7 +333,7 @@ footer p {
     }
 
     h2::before {
-        width: 250px;
+        width: 100%;
     }
 
     .cardbox {
@@ -334,5 +348,94 @@ footer p {
         flex-direction: column;
         gap: 19px;
         align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .d-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo-Offcanvas {
+        visibility: visible;
+    }
+
+    .logo-Offcanvas img{
+        width: 5rem;
+    }
+
+    .offcanvas-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #193713;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0rem !important;
+    }
+
+    .navbar-nav {
+        padding: 0px;
+        align-items: center;
+        
+        padding-right: 1rem;
+    }
+
+    .filtro{
+        display: flex;
+        flex-direction: column;
+        gap: 0rem !important;
+        background-color: #19371320;
+        border-radius: 10px;
+        padding: 0.3rem 0.3rem;
+        align-items: right;
+        color: #ffffff;
+    }
+    .filtro h1{
+        display: none;
+    }
+    .inputItem label{
+        display: none;
+    }
+    input[type="date"] {
+        font-family: 'Poppins', sans-serif;
+        width: 47%;
+        background-color: #00000025;
+        color: white;
+        border-radius: 60px !important;
+    }
+    .forms{
+        display: flex;
+        flex-direction: row;
+    }
+    .inputItem{     
+        background-color: #ff0000;
+    }
+
+    #Datas {
+        border-radius: 6px;
+        border-style: none;
+        padding: 5px 5px;
+        background-color: blue;
+    }
+
+    .d-flex button {
+        background-color: #44762B;
+        color: white;
+    }
+
+    .d-flex svg {
+        fill: #ffffff;
+    }
+
+    #link-Inicio{
+        color: #7F7F7F !important;
+    }
+
+    #link-Grafico{
+        color: #7F7F7F !important;
     }
 }

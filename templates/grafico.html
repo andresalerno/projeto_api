@@ -9,10 +9,27 @@
         justify-content: center;
         padding: 1.2rem 3rem;
     }
-    a:nth-child(2) {
-        color: white;
-        border-bottom: 2px solid #ffffff;
-        padding-bottom: 1px;
+    
+    #link-Grafico {
+        color: white !important; 
+        border-bottom: 2px solid #ffffff !important;
+        padding-bottom: 1px !important;
+    }
+
+    @media (max-width: 703px) {
+      main { 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.2rem 3rem;
+    }
+    }
+
+    @media (max-width: 768px) {
+      #link-Grafico{
+        color: #44762B !important;
+        border-bottom: 2px solid #44762B !important;
+    }
     }
   </style>
 {% endblock %}
@@ -31,12 +48,9 @@
           <input type="date" name="DataTermino" id="Datas" readonly />
         </div>
         <div class="botoesFiltro">
-          <button type="button" value="Limpar" id="Limpar">
-            <p>Limpar</p>
-          </button>
-          <button type="button" value="Filtrar" id="Filtrar">
-            <img id="IconFiltrar" src="/static/img/filtro.svg" alt="">
-            <p>Filtrar</p>
+          <button type="button" class="btn" id="Limpar">Limpar</button>
+          <button type="button" class="btn btn-light" value="Filtrar" id="Filtrar">
+            <img id="IconFiltrar" src="/static/img/filtro.svg" alt=""></i> Filtrar
           </button>
         </div>
       </div>
