@@ -38,10 +38,20 @@ def grafico(dado="Temperatura"):
 
     fig.update_layout(
         xaxis_title='Data e Hora',
-        yaxis_title=dado,
-        margin=dict(l=20, r=20, t=20, b=20),  # Margens menores para aumentar a área de plotagem
+        title=dado,
+        margin=dict(l=20, r=20, t=50, b=20),  # Margens menores para aumentar a área de plotagem
         autosize=True,
-        plot_bgcolor='white'
+        plot_bgcolor='white',
+            font=dict(
+            family='Poppins',  # Definir a família da fonte global do gráfico
+            size=12,        # Definir o tamanho da fonte global do gráfico
+            color='black'   # Definir a cor do texto global do gráfico
+        ),
+        yaxis=dict(
+            showgrid=True,  # Exibir linhas de grade no eixo Y
+            gridcolor='lightgray',  # Cor das linhas de grade no eixo Y
+            gridwidth=1,  # Largura das linhas de grade no eixo Y
+        )
     )
 
     config = {'displayModeBar': False, 'responsive': True}

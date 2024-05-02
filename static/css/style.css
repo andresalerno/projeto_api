@@ -259,7 +259,6 @@ h2::before {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
-    background-color: aqua;
 }
 
 input:focus {
@@ -270,6 +269,10 @@ input:focus {
 input[type="date"] {
     font-family: 'Poppins', sans-serif;
     width: 100%;
+}
+
+#label-SmallScreen{
+    display: none;
 }
 
 #Datas {
@@ -304,11 +307,15 @@ input[type="date"] {
     background-color: #18361234 !important;
 }
 
+#IconExclude{
+    display: none;
+}
+
 /* Footer */
 footer {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin-top: 2rem;
 }
 
@@ -320,11 +327,32 @@ footer p {
 /* Responsavidade */
 
 @media (max-width: 703px) {
+    /* Navbar */
+    .navbar-brand h1 {
+        font-size: 22px;
+    }
+    
+     /* Index e Gráfico */
+    main {
+        margin-top: 2rem;
+        padding: 0rem 0.2rem;
+    }
+
+     /* Index */
     .title {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
         justify-content: center;
         align-items: center;
+    }
+
+    .atual p{
+        display: flex;
+        align-items: center;
+    }
+
+    .atual img{
+        margin-top: 0;
     }
 
     .atual p::before {
@@ -337,17 +365,7 @@ footer p {
     }
 
     .cardbox {
-        background-color: rgb(255, 255, 255);
-        height: 21.476rem;
-        text-align: center;
-        border-radius: 10px;
-        width: 18rem;
-        box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
-        padding: 1.0rem 1.3rem;
-        display: flex;
-        flex-direction: column;
-        gap: 19px;
-        align-items: center;
+        width: 20rem;
     }
 }
 
@@ -372,54 +390,96 @@ footer p {
         background-color: #193713;
     }
 
+     /* Navbar */
     nav {
         width: 100%;
-        padding: 0rem !important;
+        padding: 1rem !important;
     }
-
+    
     .navbar-nav {
         padding: 0px;
         align-items: center;
-        
         padding-right: 1rem;
     }
 
+     /* Gráfico */
     .filtro{
         display: flex;
         flex-direction: column;
         gap: 0rem !important;
-        background-color: #19371320;
-        border-radius: 10px;
-        padding: 0.3rem 0.3rem;
-        align-items: right;
-        color: #ffffff;
+        padding: 0;
+        width: 100%;
+        background: transparent;
     }
+
     .filtro h1{
         display: none;
     }
-    .inputItem label{
-        display: none;
-    }
-    input[type="date"] {
-        font-family: 'Poppins', sans-serif;
-        width: 47%;
-        background-color: #00000025;
-        color: white;
-        border-radius: 60px !important;
-    }
+    
     .forms{
         display: flex;
         flex-direction: row;
+        gap: 0.4rem;
     }
+
+    .inputItem label{
+        display: none;
+    }
+
     .inputItem{     
-        background-color: #ff0000;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.4rem;
+        width: 100%;
     }
+
+    #label-SmallScreen{
+        display:inline;
+    }
+
+    input[type="date"] {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: white;
+        border-radius: 60px !important;
+    }
+    
 
     #Datas {
         border-radius: 6px;
         border-style: none;
         padding: 5px 5px;
-        background-color: blue;
+        background-color: #19371320;
+    }
+
+    .btn span{
+        display: none;
+    }
+
+    #Limpar{
+        background-color: white;
+        padding: 0 0.5rem;
+    }
+
+    #Filtrar {
+        padding: 0 0.5rem;
+    }
+
+    #IconFiltrar{
+        margin: 0;
+    }
+
+    #IconExclude{
+        display: inline;
+        margin: 0;
+    }
+
+    .cardgrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
+        gap: 1.0rem;
+        width: 100%;
     }
 
     .d-flex button {
@@ -437,5 +497,18 @@ footer p {
 
     #link-Grafico{
         color: #7F7F7F !important;
+    }
+}
+
+@media (max-width: 494px) {
+    .forms{
+        flex-wrap: wrap;
+    }
+    .inputItem{     
+        width: 36%;
+    }
+
+    #Datas{
+        width: 100%;
     }
 }

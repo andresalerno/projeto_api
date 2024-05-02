@@ -1,75 +1,74 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block head %} {{ super() }}
+<style type="text/css">
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1.2rem 3rem;
+  }
 
-{% block head %}
-{{ super() }}
-  <style type="text/css">
-    main { 
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding: 1.2rem 3rem;
+  #link-Grafico {
+    color: white !important;
+    border-bottom: 2px solid #ffffff !important;
+    padding-bottom: 1px !important;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem 1rem;
     }
-    
     #link-Grafico {
-        color: white !important; 
-        border-bottom: 2px solid #ffffff !important;
-        padding-bottom: 1px !important;
+      color: #44762b !important;
+      border-bottom: 2px solid #44762b !important;
     }
+  }
 
-    @media (max-width: 703px) {
-      main { 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1.2rem 3rem;
-    }
-    }
 
-    @media (max-width: 768px) {
-      #link-Grafico{
-        color: #44762B !important;
-        border-bottom: 2px solid #44762B !important;
-    }
-    }
-  </style>
-{% endblock %}
-
-{% block content %}
+</style>
+{% endblock %} {% block content %}
 <main>
   <form class="filtro" method="get" action="/obter-dados">
-      <h1>Filtro</h1>
-      <div class="forms">
-        <div class="inputItem">
-          <label for="DataInicio">Data de início:</label>
-          <input type="date" name="DataInicio" id="Datas" readonly />
-        </div>
-        <div class="inputItem">
-          <label for="DataTermino">Data de término:</label>
-          <input type="date" name="DataTermino" id="Datas" readonly />
-        </div>
-        <div class="botoesFiltro">
-          <button type="button" class="btn" id="Limpar">Limpar</button>
-          <button type="button" class="btn btn-light" value="Filtrar" id="Filtrar">
-            <img id="IconFiltrar" src="/static/img/filtro.svg" alt=""></i> Filtrar
-          </button>
-        </div>
+    <h1>Filtro</h1>
+    <div class="forms">
+      <div class="inputItem">
+        <label for="DataInicio">Data de início:</label>
+        <label for="DataInicio" id="label-SmallScreen">De</label>
+        <input type="date" name="DataInicio" id="Datas" readonly />
       </div>
-  </form>
-
-    <div class="cardgrid">
-      <div class="card">
-        {{ plotly_div|safe }} 
+      <div class="inputItem">
+        <label for="DataTermino">Data de término:</label>
+        <label for="DataInicio" id="label-SmallScreen">até</label>
+        <input type="date" name="DataTermino" id="Datas" readonly/>
       </div>
-      <div class="card">
-        {{ plotly_div1|safe }} 
-      </div>
-      <div class="card">
-        {{ plotly_div2|safe }} 
-      </div>
-      <div class="card">
-        {{ plotly_div3|safe }} 
+      <div class="botoesFiltro">
+        <button type="button" class="btn" id="Limpar">
+          <img id="IconExclude" src="/static/img/ExcludeIcon.svg" alt="" />
+          <span>Limpar</span>
+        </button>
+        <button
+          type="button"
+          class="btn btn-light"
+          value="Filtrar"
+          id="Filtrar"
+        >
+          <img id="IconFiltrar" src="/static/img/filtro.svg" alt="" /><span
+            >Filtrar</span
+          >
+        </button>
       </div>
     </div>
+  </form>
+
+  <div class="cardgrid">
+    <div class="card">{{ plotly_div|safe }}</div>
+    <div class="card">{{ plotly_div1|safe }}</div>
+    <div class="card">{{ plotly_div2|safe }}</div>
+    <div class="card">{{ plotly_div3|safe }}</div>
+  </div>
 </main>
 
 {% endblock content %}
