@@ -390,6 +390,11 @@ footer p {
         background-color: #193713;
     }
 
+    .offcanvas-header{
+        background-color:#193713;
+        color:rgba(255, 255, 255, 0.79);
+    }
+
      /* Navbar */
     nav {
         width: 100%;
@@ -400,6 +405,10 @@ footer p {
         padding: 0px;
         align-items: center;
         padding-right: 1rem;
+    }
+
+    .navbar-toggler-icon{
+        fill: aqua;
     }
 
      /* Gráfico */
