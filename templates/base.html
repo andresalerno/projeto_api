@@ -18,6 +18,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg  "data-bs-theme="dark">
+    
         <div class="container-fluid">
             <div class="navbar-brand me-auto" href="/">
                 <img src="../static/img/LogoSmartFarm.svg" alt="">
@@ -26,6 +27,11 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
+                <h2>Formulário de Download</h2>
+
+                <form action="/caminho/do/seu/arquivo" method="get">
+                    <button type="submit">Baixar Arquivo</button>
+                </form>
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
@@ -50,9 +56,10 @@
                                 <img id="Importar" src="/static/img/importar.svg" alt=""> Importar
                             </button>
                         </form>
-                        <button type="button" class="btn btn-light" value="Baixar">
-                            <img id="Baixar" src="/static/img/baixar.svg" alt="" style="width: 1.3rem;"> Baixar
-                        </button>
+                        <form action="/caminho/do/seu/arquivo" method="get">
+                            <button type="button" class="btn btn-light" value="Baixar">
+                                <img id="Baixar" src="/static/img/baixar.svg" alt="" style="width: 1.3rem;"> Baixar
+                        </form>
                     </div>
                 </div>
                 <div class="offcanvas-header">
