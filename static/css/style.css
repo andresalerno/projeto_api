@@ -377,8 +377,19 @@ footer p {
     #Baixar{
         filter: brightness(0) invert(1);
     }
-    .btn:hover{
-        background-color: rgba(248, 29, 29, 0.39);
+
+    #link-Inicio:hover,
+    #link-Grafico:hover {
+        color: white !important;
+        border-bottom: 2px solid white!important;
+    }
+
+    .btn-light.btn:hover{
+        background-color: #71A334;
+        color: white;
+    }
+    #link-inicio{
+        color: white !important;
     }
 
     .d-flex {
@@ -518,6 +529,7 @@ footer p {
     #link-Grafico{
         color: rgba(255, 255, 255, 0.50) !important;
     }
+    
 }
 
 @media (max-width: 494px) {
