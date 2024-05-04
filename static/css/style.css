@@ -47,7 +47,6 @@ a:hover {
     color: white !important;
 }
 
-
 .d-flex {
     display: flex;
     gap: 1rem;
@@ -55,6 +54,7 @@ a:hover {
 
 .d-flex button {
     border: none;
+    font-weight: 600;
 }
 
 .btn {
@@ -70,7 +70,7 @@ button img {
 }
 
 button:hover {
-    background-color: #d2d2d2;
+    background-color: rgba(210, 210, 210, 0.39);
     cursor: pointer;
 }
 
@@ -372,7 +372,15 @@ footer p {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+    #Importar, 
+    #Baixar{
+        filter: brightness(0) invert(1);
+    }
+    .btn:hover{
+        background-color: rgba(248, 29, 29, 0.39);
+    }
+
     .d-flex {
         display: flex;
         flex-direction: column;
@@ -396,6 +404,10 @@ footer p {
     .offcanvas-header{
         background-color:#193713;
         color:rgba(255, 255, 255, 0.79);
+    }
+
+    #Importar{
+        fill: #ff9900;
     }
 
      /* Navbar */
@@ -500,11 +512,11 @@ footer p {
     }
 
     #link-Inicio{
-        color: #7F7F7F !important;
+        color: rgba(255, 255, 255, 0.50) !important;
     }
 
     #link-Grafico{
-        color: #7F7F7F !important;
+        color: rgba(255, 255, 255, 0.50) !important;
     }
 }
 
