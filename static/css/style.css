@@ -53,12 +53,15 @@ a:hover {
     gap: 1rem;
 }
 
+.d-flex button {
+    border: none;
+}
+
 .btn {
     display: flex;
     gap: 5rem !important;
     font-size: 14px !important;
     font-family: 'Poppins', sans-serif !important;
-
 }
 
 button img {
@@ -99,7 +102,7 @@ container-fluid {
 }
 
 .logo-Offcanvas{
-    visibility: hidden;
+    display: none;
 }
 
 .logo-Offcanvas img{
@@ -376,7 +379,7 @@ footer p {
         align-items: center;
     }
     .logo-Offcanvas {
-        visibility: visible;
+        display: block;
     }
 
     .logo-Offcanvas img{
@@ -405,10 +408,6 @@ footer p {
         padding: 0px;
         align-items: center;
         padding-right: 1rem;
-    }
-
-    .navbar-toggler-icon{
-        fill: aqua;
     }
 
      /* Gráfico */
