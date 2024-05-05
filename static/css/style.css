@@ -69,10 +69,41 @@ button img {
     width: 1rem;
 }
 
+.InputFile img {
+    margin-right: 0.2rem;
+    width: 1rem;
+}
+
+
 button:hover {
     background-color: rgba(210, 210, 210, 0.39);
     cursor: pointer;
 }
+
+.InputFile {
+    position: relative;
+    display: inline-block;
+    background-color: #ffffff;
+    color: black;
+    padding: 5px 12px !important;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.InputFile input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+
 
 container-fluid {
     align-items: center;
@@ -417,8 +448,27 @@ footer p {
         color:rgba(255, 255, 255, 0.79);
     }
 
-    #Importar{
-        fill: #ff9900;
+    .InputFile {
+        position: relative;
+        display: inline-block;
+        background-color: #44762B  !important;
+        color: rgb(255, 255, 255) !important;
+        padding: 6px 12px !important;
+        border-radius: 5px;
+        border: none !important;
+        font-size: 14px !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 600 !important;
+    }
+    
+    .InputFile input[type="file"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
     }
 
      /* Navbar */
