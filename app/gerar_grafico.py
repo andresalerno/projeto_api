@@ -4,6 +4,7 @@ import pandas as pd
 import mysql.connector
 from mysql.connector import Error
 from sqlalchemy import create_engine
+from datetime import datetime, timedelta
 #nosso
 #globals
 import estaticos as statics
@@ -11,8 +12,15 @@ import estaticos as statics
 
 
 
-def grafico(dado):
+def grafico(dado, data_inicio=None, data_termino=None):
     try:
+        # Se datas não forem fornecidas, usar o intervalo padrão dos últimos 7 dias
+        if not data_inicio or not data_termino:
+            data_termino = datetime.now()
+            data_inicio = data_termino - timedelta(days=7)
+            data_inicio = data_inicio.strftime('%Y-%m-%d')
+            data_termino = data_termino.strftime('%Y-%m-%d')
+            
         # Conexão com o banco de dados MySQL
         conn = mysql.connector.connect(
             host=statics.host,
@@ -22,10 +30,21 @@ def grafico(dado):
         )
         if conn.is_connected():
             print('Conectado ao banco de dados MySQL')
+            
+            # Converte as strings de data para objetos datetime
+            data_inicio_obj = datetime.strptime(data_inicio, '%Y-%m-%d')
+            data_termino_obj = datetime.strptime(data_termino, '%Y-%m-%d')
 
+            # Adiciona um dia à data de término para incluir o dia inteiro
+            data_termino_obj += timedelta(days=1)
+
+            # Converte de volta para string no formato apropriado para uso na consulta SQL
+            data_inicio = data_inicio_obj.strftime('%Y-%m-%d')
+            data_termino = data_termino_obj.strftime('%Y-%m-%d')
+            
             # Carregar dados diretamente em um DataFrame do pandas
-            query = f"SELECT * FROM `{statics.table}`"
-            data = pd.read_sql(query, conn)
+            query = f"SELECT * FROM `{statics.table}` WHERE `{statics.db_est_data_hora}` BETWEEN %s AND %s"
+            data = pd.read_sql(query, conn, params=[data_inicio, data_termino])
 
             if dado not in data.columns:
                 print("Colunas disponíveis no DataFrame:", data.columns.tolist())
@@ -103,7 +122,7 @@ def grafico(dado):
 
 
 
-def gerar_tabela():
+def gerar_tabela(data_inicio, data_termino):
     try:
         # Conexão com o banco de dados MySQL
         conn = mysql.connector.connect(
@@ -115,8 +134,8 @@ def gerar_tabela():
         if conn.is_connected():
             print(statics.txt_sql_conn_init)
             # Carregar dados diretamente em um DataFrame do pandas
-            query = f"SELECT * FROM `{statics.table}`"
-            data = pd.read_sql(query, conn)
+            query = f"SELECT * FROM `{statics.table}` WHERE `{statics.db_est_data_hora}` BETWEEN %s AND %s"
+            data = pd.read_sql(query, conn, params=[data_inicio, data_termino])
             print(data)
 
             data[statics.csv_data] = data[statics.db_est_data_hora].apply(str).str.slice(stop=10)

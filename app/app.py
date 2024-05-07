@@ -1,6 +1,7 @@
 from flask import Flask, render_template, send_file, request, redirect
 from werkzeug.utils import secure_filename
 import os
+from datetime import datetime, timedelta
 #nosso
 from gerar_grafico import grafico, gerar_tabela
 from banco import criar_banco, obter_valores
@@ -119,16 +120,27 @@ def main():
 
 @app.route('/Graficos')
 def especific():
-    div_html = grafico(statics.db_est_temp)
-    div_html1 = grafico(statics.db_est_um_solo) 
-    div_html2 = grafico(statics.db_est_um_amb) 
-    div_html3 = grafico(statics.db_est_vol_aq) 
+    data_inicio = request.args.get('DataInicio')
+    data_termino = request.args.get('DataTermino')
+    div_html = grafico(statics.db_est_temp, data_inicio, data_termino)
+    div_html1 = grafico(statics.db_est_um_solo, data_inicio, data_termino) 
+    div_html2 = grafico(statics.db_est_um_amb, data_inicio, data_termino) 
+    div_html3 = grafico(statics.db_est_vol_aq, data_inicio, data_termino) 
     return render_template('grafico.html', plotly_div=div_html, plotly_div1=div_html1, plotly_div2=div_html2, plotly_div3=div_html3)
 
 @app.route('/Baixar')
 def baixar_relatorio():
+    data_inicio = request.args.get('DataInicio')
+    data_termino = request.args.get('DataTermino')
+    
+    # Converte as strings de data para objetos datetime
+    data_inicio = datetime.strptime(data_inicio, '%Y-%m-%d')
+    data_termino = datetime.strptime(data_termino, '%Y-%m-%d')
+
+    # Adiciona um dia ao término
+    data_termino += timedelta(days=1)
     try:
-        gerar_tabela()
+        gerar_tabela(data_inicio, data_termino)
         return send_file("./uploads/relatorio.xlsx", as_attachment=True)
     except Exception as e:
         return str(e), 500 
