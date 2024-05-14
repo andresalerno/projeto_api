@@ -21,43 +21,37 @@
       align-items: center;
       padding: 1.2rem 1rem;
     }
+
     #link-Grafico {
       color: #71A334 !important;
       border-bottom: 2px solid #71A334 !important;
     }
   }
-
-
 </style>
 {% endblock %} {% block content %}
 <main>
   <form class="filtro" method="get" action="/obter-dados">
     <h1>Filtro</h1>
     <div class="forms">
-      <div class="inputItem">
-        <label for="DataInicio">Data de início:</label>
-        <label for="DataInicio" id="label-SmallScreen">De</label>
-        <input type="date" name="DataInicio" id="Datas" readonly />
-      </div>
-      <div class="inputItem">
-        <label for="DataTermino">Data de término:</label>
-        <label for="DataInicio" id="label-SmallScreen">até</label>
-        <input type="date" name="DataTermino" id="Datas" readonly/>
+      <div class="input">
+        <div class="inputItem">
+          <label for="DataInicio">Data de início:</label>
+          <label for="DataInicio" id="label-SmallScreen">De</label>
+          <input type="date" name="DataInicio" id="Datas" readonly required />
+        </div>
+        <div class="inputItem">
+          <label for="DataTermino">Data de término:</label>
+          <label for="DataInicio" id="label-SmallScreen">até</label>
+          <input type="date" name="DataTermino" id="Datas" readonly required/>
+        </div>
       </div>
       <div class="botoesFiltro">
         <button type="button" class="btn" id="Limpar">
           <img id="IconExclude" src="/static/img/ExcludeIcon.svg" alt="" />
           <span>Limpar</span>
         </button>
-        <button
-          type="button"
-          class="btn btn-light"
-          value="Filtrar"
-          id="Filtrar"
-        >
-          <img id="IconFiltrar" src="/static/img/filtro.svg" alt="" /><span
-            >Filtrar</span
-          >
+        <button type="button" class="btn btn-light" value="Filtrar" id="Filtrar">
+          <img id="IconFiltrar" src="/static/img/filtro.svg" alt="" /><span>Filtrar</span>
         </button>
       </div>
     </div>

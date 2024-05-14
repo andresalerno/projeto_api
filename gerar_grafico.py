@@ -29,7 +29,7 @@ def grafico(dado="Temperatura"):
     # Selecionar os dados da coluna desejada
     y = data_filtrada[dado].to_list()
     x = data_filtrada.index.tolist()  # Usar o índice Data_Hora como eixo x
-    
+
     # Criação do gráfico
     fig = go.Figure(data=go.Scatter(x=x, y=y, mode='lines'))
     
@@ -54,6 +54,6 @@ def grafico(dado="Temperatura"):
         )
     )
 
-    config = {'displayModeBar': False, 'responsive': True}
+    config = {'displayModeBar': False, 'responsive': True, 'scrollZoom': True}
     div_html = fig.to_html(full_html=False, include_plotlyjs='cdn', config=config)
     return div_html

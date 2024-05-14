@@ -252,10 +252,11 @@ h2::before {
 
 /* Gráfico */
 .cardgrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(28rem, auto));
-    gap: 1.0rem;
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .card {
@@ -263,6 +264,7 @@ h2::before {
     box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
     border-radius: 10px;
     padding: 1.1rem;
+    width: 49%;
 }
 
 .filtro {
@@ -358,48 +360,12 @@ footer p {
     font-size: 12px;
 }
 
-/* Responsavidade */
+/* RESPONSAVIDADE */
 
-@media (max-width: 703px) {
-    /* Navbar */
-    .navbar-brand h1 {
-        font-size: 22px;
-    }
-    
-     /* Index e Gráfico */
-    main {
-        margin-top: 2rem;
-        padding: 0rem 0.2rem;
-    }
-
-     /* Index */
-    .title {
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .atual p{
-        display: flex;
-        align-items: center;
-    }
-
-    .atual img{
-        margin-top: 0;
-    }
-
-    .atual p::before {
-        content: "";
-        border: none;
-    }
-
-    h2::before {
+@media (max-width:1179px) {
+    /* Gráfico */
+    .card{
         width: 100%;
-    }
-
-    .cardbox {
-        width: 20rem;
     }
 }
 
@@ -500,9 +466,15 @@ footer p {
     .forms{
         display: flex;
         flex-direction: row;
-        gap: 0.4rem;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
     }
 
+    .input{
+        display: flex;
+        gap: 0.5rem;
+    }
     .inputItem label{
         display: none;
     }
@@ -512,7 +484,6 @@ footer p {
         flex-direction: row;
         align-items: center;
         gap: 0.4rem;
-        width: 100%;
     }
 
     #label-SmallScreen{
@@ -521,9 +492,11 @@ footer p {
 
     input[type="date"] {
         font-family: 'Poppins', sans-serif;
-        width: 100%;
         color: white;
         border-radius: 60px !important;
+        padding: 0.2rem 1rem !important;
+        width: min-content;
+        text-align: center;
     }
     
 
@@ -538,13 +511,14 @@ footer p {
         display: none;
     }
 
-    #Limpar{
+    #Limpar, #Filtrar{
         background-color: white;
         padding: 0 0.5rem;
     }
 
-    #Filtrar {
-        padding: 0 0.5rem;
+    #Limpar:hover {
+        background-color: #d2d2d2 !important;
+        cursor: pointer;
     }
 
     #IconFiltrar{
@@ -554,13 +528,6 @@ footer p {
     #IconExclude{
         display: inline;
         margin: 0;
-    }
-
-    .cardgrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
-        gap: 1.0rem;
-        width: 100%;
     }
 
     .d-flex button {
@@ -582,15 +549,63 @@ footer p {
     
 }
 
-@media (max-width: 494px) {
-    .forms{
-        flex-wrap: wrap;
+@media (max-width: 703px) {
+    /* Navbar */
+    .navbar-brand h1 {
+        font-size: 22px;
     }
-    .inputItem{     
-        width: 36%;
+    
+     /* Index e Gráfico */
+    main {
+        margin-top: 2rem;
+        padding: 0rem 0.2rem;
     }
 
-    #Datas{
-        width: 80%;
+     /* Index */
+    .title {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
     }
+
+    .atual p{
+        display: flex;
+        align-items: center;
+    }
+
+    .atual img{
+        margin-top: 0;
+    }
+
+    .atual p::before {
+        content: "";
+        border: none;
+    }
+
+    h2::before {
+        width: 100%;
+    }
+
+    .cardbox {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 546px) {
+    .forms{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .input{
+        flex-wrap: wrap;
+        width: min-content;
+    }
+
+    #Limpar, #Filtrar{
+        padding: 0.4rem 0.6rem;
+    }
+
 }
