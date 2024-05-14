@@ -228,7 +228,7 @@ h2::before {
     color: #193713;
 }
 
-.icon {
+.iconParametro {
     width: 10rem;
     height: 6.1rem;
     object-fit: contain;
@@ -248,7 +248,6 @@ h2::before {
     width: 1.6rem;
     height: 1.2rem;
 }
-
 
 /* Gráfico */
 .cardgrid {
@@ -347,6 +346,10 @@ input[type="date"] {
     display: none;
 }
 
+.modebar-group{
+    padding: 0 !important;
+}
+
 /* Footer */
 footer {
     width: 100%;
@@ -405,13 +408,19 @@ footer p {
     .offcanvas-body{
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
         background-color: #193713;
     }
 
     .offcanvas-header{
         background-color:#193713;
-        color:rgba(255, 255, 255, 0.79);
+        color:rgba(241, 241, 241, 0.79);
+    }
+
+    .offcanvas-header p{
+        font-size: 12px;
+        margin-bottom: 0;
     }
 
     .InputFile {
@@ -447,6 +456,7 @@ footer p {
         padding: 0px;
         align-items: center;
         padding-right: 1rem;
+        flex-grow: 0;
     }
 
      /* Gráfico */
@@ -497,18 +507,16 @@ footer p {
         padding: 0.2rem 1rem !important;
         width: min-content;
         text-align: center;
-    }
-    
-
-    #Datas {
-        border-radius: 6px;
         border-style: none;
-        padding: 5px 5px;
         background-color: #19371320;
     }
 
     .btn span{
         display: none;
+    }
+
+    .botoesFiltro{
+        flex-direction: row-reverse;
     }
 
     #Limpar, #Filtrar{
@@ -546,6 +554,7 @@ footer p {
     #link-Grafico{
         color: rgba(255, 255, 255, 0.50) !important;
     }
+    
     
 }
 
@@ -592,7 +601,8 @@ footer p {
     }
 }
 
-@media (max-width: 546px) {
+@media (max-width: 550px) {
+    /* Gráfico */
     .forms{
         display: flex;
         justify-content: center;

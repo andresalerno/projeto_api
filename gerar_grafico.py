@@ -54,6 +54,6 @@ def grafico(dado="Temperatura"):
         )
     )
 
-    config = {'displayModeBar': False, 'responsive': True, 'scrollZoom': True}
+    config = {'responsive': True, 'modeBarButtonsToRemove': ['resetScale2d'], 'displaylogo': False}
     div_html = fig.to_html(full_html=False, include_plotlyjs='cdn', config=config)
     return div_html
