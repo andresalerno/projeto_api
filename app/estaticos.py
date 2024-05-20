@@ -48,10 +48,10 @@ svg_neutro = ""
 
 
 # Strings
-txt_title_temp = "Temperatura (°C)"
-txt_title_um_solo = "Umidade Solo %"
-txt_title_um_amb = "Umidade Ambiente %"
-txt_title_vol_aq = "Volume Água (mL)"
+txt_title_temp = "Temperatura"
+txt_title_um_solo = "Umidade Solo"
+txt_title_um_amb = "Umidade Ambiente"
+txt_title_vol_aq = "Volume Água"
 #
 txt_positivo = 'acima desde a última atualização'
 txt_negativo = 'abaixo desde a última atualização'
@@ -62,3 +62,9 @@ txt_sql_conn_end = "Conexão ao MySQL encerrada"
 #
 txt_err_sql_conn = "Erro ao conectar ao MySQL"
 txt_err_sql_proc = "Erro ao processar os dados"
+
+# Unidades
+uni_temp = '°C'
+uni_um_solo = '%'
+uni_um_amb = '%'
+uni_vol_aq = 'ml'
