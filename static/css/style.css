@@ -103,12 +103,6 @@ button:hover {
     cursor: pointer;
 }
 
-
-
-container-fluid {
-    align-items: center;
-}
-
 .nav-item{
     color: white;
 }

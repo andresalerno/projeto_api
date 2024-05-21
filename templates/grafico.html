@@ -40,7 +40,7 @@
           <input type="date" name="DataInicio" id="Datas" readonly required />
         </div>
         <div class="inputItem">
-          <label for="DataTermino">Data de término:</label>
+          <label for="DataTermino"> Data de término:</label>
           <label for="DataInicio" id="label-SmallScreen">até</label>
           <input type="date" name="DataTermino" id="Datas" readonly required/>
         </div>
@@ -50,9 +50,17 @@
           <img id="IconExclude" src="/static/img/ExcludeIcon.svg" alt="" />
           <span>Limpar</span>
         </button>
-        <button type="button" class="btn btn-light" value="Filtrar" id="Filtrar">
-          <img id="IconFiltrar" src="/static/img/filtro.svg" alt="" /><span>Filtrar</span>
-        </button>
+        <div class="botoesFiltro">
+          <a onclick="setDownloadHref()" class="btn btn-light" style="text-decoration: none; display: flex; align-items: center;">
+              <img src="/static/img/baixar.svg" alt="Baixar" style="width: 1.3rem; margin-right: 5px;">
+              <span>Baixar</span>
+              
+          </a>
+          <button type="submit" class="btn btn-light">
+              <img src="/static/img/filtro.svg" alt="Filtrar" style="width: 1.3rem; margin-right: 5px;">
+              <span>Filtrar</span>
+          </button>
+      </div>
       </div>
     </div>
   </form>
