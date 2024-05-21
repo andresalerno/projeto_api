@@ -31,35 +31,31 @@
 </style>
 {% endblock %} {% block content %}
 <main>
-  <form class="filtro" method="get" action="/obter-dados">
+  <form class="filtro" method="GET" action="/Graficos">
     <h1>Filtro</h1>
     <div class="forms">
-      <div class="inputItem">
-        <label for="DataInicio">Data de início:</label>
-        <label for="DataInicio" id="label-SmallScreen">De</label>
-        <input type="date" name="DataInicio" id="Datas" readonly />
-      </div>
-      <div class="inputItem">
-        <label for="DataTermino">Data de término:</label>
-        <label for="DataInicio" id="label-SmallScreen">até</label>
-        <input type="date" name="DataTermino" id="Datas" readonly/>
-      </div>
-      <div class="botoesFiltro">
-        <button type="button" class="btn" id="Limpar">
+        <div class="inputItem">
+            <label for="DataInicio">Data de início:</label>
+            <input type="date" name="DataInicio" id="DataInicio" required/>
+        </div>
+        <div class="inputItem">
+            <label for="DataTermino">Data de término:</label>
+            <input type="date" name="DataTermino" id="DataTermino" required/>
+        </div>
+        <button type="reset" class="btn" id="Limpar">
           <img id="IconExclude" src="/static/img/ExcludeIcon.svg" alt="" />
           <span>Limpar</span>
         </button>
-        <button
-          type="button"
-          class="btn btn-light"
-          value="Filtrar"
-          id="Filtrar"
-        >
-          <img id="IconFiltrar" src="/static/img/filtro.svg" alt="" /><span
-            >Filtrar</span
-          >
-        </button>
-      </div>
+        <div class="botoesFiltro">
+            <a onclick="setDownloadHref()" class="btn btn-light" style="text-decoration: none; display: flex; align-items: center;">
+                <img src="/static/img/baixar.svg" alt="Baixar" style="width: 1.3rem; margin-right: 5px;">
+                Baixar
+            </a>
+            <button type="submit" class="btn btn-light">
+                <img src="/static/img/filtro.svg" alt="Filtrar" style="width: 1.3rem; margin-right: 5px;">
+                <span>Filtrar</span>
+            </button>
+        </div>
     </div>
   </form>
 
@@ -71,4 +67,23 @@
   </div>
 </main>
 
+<script>
+  function ajustarDataTermino() {
+    var inputTermino = document.getElementById('DataTermino');
+    var dataTermino = new Date(inputTermino.value);
+    dataTermino.setDate(dataTermino.getDate() + 1); // Adiciona um dia
+    inputTermino.value = dataTermino.toISOString().split('T')[0]; // Atualiza o valor do input
+  }
+
+  function setDownloadHref() {
+      var inicio = document.getElementById('DataInicio').value;
+      var termino = document.getElementById('DataTermino').value;
+      if (!inicio || !termino){
+        alert("Selecione data de início e término.")
+        return
+      }
+      var downloadLink = document.querySelector('.botoesFiltro a');
+      downloadLink.href = `/Baixar?DataInicio=${inicio}&DataTermino=${termino}`;
+  }
+</script>
 {% endblock content %}
