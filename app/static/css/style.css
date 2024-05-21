@@ -102,10 +102,6 @@ button:hover {
     cursor: pointer;
 }
 
-container-fluid {
-    align-items: center;
-}
-
 .nav-item{
     color: white;
 }
@@ -249,10 +245,11 @@ h2::before {
 
 /* Gráfico */
 .cardgrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(28rem, auto));
-    gap: 1.0rem;
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .card {
@@ -260,6 +257,7 @@ h2::before {
     box-shadow: 5px 5px 10px rgba(30, 30, 30, 0.413);
     border-radius: 10px;
     padding: 1.1rem;
+    width: 49%;
 }
 
 .filtro {
@@ -432,6 +430,16 @@ footer p {
         font-weight: 600 !important;
     }
 
+    .InputFile input[type="file"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
      /* Navbar */
     nav {
         width: 100%;
@@ -462,7 +470,14 @@ footer p {
     .forms{
         display: flex;
         flex-direction: row;
-        gap: 0.4rem;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .input{
+        display: flex;
+        gap: 0.5rem;
     }
 
     .inputItem label{
@@ -474,7 +489,6 @@ footer p {
         flex-direction: row;
         align-items: center;
         gap: 0.4rem;
-        width: 100%;
     }
 
     #label-SmallScreen{
@@ -483,9 +497,13 @@ footer p {
 
     input[type="date"] {
         font-family: 'Poppins', sans-serif;
-        width: 100%;
         color: white;
         border-radius: 60px !important;
+        padding: 0.2rem 1rem !important;
+        width: min-content;
+        text-align: center;
+        border-style: none;
+        background-color: #19371320;
     }
     
 
@@ -514,13 +532,6 @@ footer p {
     #IconExclude{
         display: inline;
         margin: 0;
-    }
-
-    .cardgrid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100%, auto));
-        gap: 1.0rem;
-        width: 100%;
     }
 
     .d-flex button {

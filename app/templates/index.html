@@ -9,11 +9,33 @@
         padding-bottom: 1px !important;
     }
 
-    @media (max-width: 991px) {
-        #link-Inicio{
-        color: #71A334 !important;
-        border-bottom: 2px solid #71A334!important;
+    body {
+        overflow-y: hidden;
     }
+
+    footer {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+    }
+
+    @media (max-width: 991px) {
+        #link-Inicio {
+            color: #71A334 !important;
+            border-bottom: 2px solid #71A334 !important;
+        }
+
+        body {
+            overflow-y: scroll;
+        }
+
+        footer {
+            position: static !important;
+            width: 100% !important;
+            display: flex !important;
+            align-items: flex-end !important;
+            margin-top: 2rem !important;
+        }
     }
 </style>
 {% endblock %}
