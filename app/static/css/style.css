@@ -225,7 +225,7 @@ h2::before {
     color: #193713;
 }
 
-.icon {
+.iconParametro {
     width: 10rem;
     height: 6.1rem;
     object-fit: contain;
@@ -342,6 +342,10 @@ input[type="date"] {
     display: none;
 }
 
+.modebar-group{
+    padding: 0 !important;
+}
+
 /* Footer */
 footer {
     width: 100%;
@@ -356,49 +360,13 @@ footer p {
 }
 
 /* Responsavidade */
-
-@media (max-width: 703px) {
-    /* Navbar */
-    .navbar-brand h1 {
-        font-size: 22px;
-    }
-    
-     /* Index e Gráfico */
-    main {
-        margin-top: 2rem;
-        padding: 0rem 0.2rem;
-    }
-
-     /* Index */
-    .title {
-        flex-direction: column;
-        gap: 1rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .atual p{
-        display: flex;
-        align-items: center;
-    }
-
-    .atual img{
-        margin-top: 0;
-    }
-
-    .atual p::before {
-        content: "";
-        border: none;
-    }
-
-    h2::before {
+@media (max-width:1179px) {
+    /* Gráfico */
+    .card{
         width: 100%;
     }
-
-    .cardbox {
-        width: 20rem;
-    }
 }
+
 
 @media (max-width: 991px) {
     #Importar, 
@@ -436,13 +404,19 @@ footer p {
     .offcanvas-body{
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
         background-color: #193713;
     }
 
     .offcanvas-header{
         background-color:#193713;
-        color:rgba(255, 255, 255, 0.79);
+        color: rgba(241, 241, 241, 0.79);
+    }
+    
+    .offcanvas-header p{
+        font-size: 12px;
+        margin-bottom: 0;
     }
 
     .InputFile {
@@ -468,6 +442,7 @@ footer p {
         padding: 0px;
         align-items: center;
         padding-right: 1rem;
+        flex-grow: 0;
     }
 
      /* Gráfico */
@@ -514,24 +489,22 @@ footer p {
     }
     
 
-    #Datas {
-        border-radius: 6px;
-        border-style: none;
-        padding: 5px 5px;
-        background-color: #19371320;
-    }
-
     .btn span{
         display: none;
     }
 
-    #Limpar{
+    .botoesFiltro{
+        flex-direction: row-reverse;
+    }
+
+    #Limpar, #Filtrar{
         background-color: white;
         padding: 0 0.5rem;
     }
 
-    #Filtrar {
-        padding: 0 0.5rem;
+    #Limpar:hover {
+        background-color: #d2d2d2 !important;
+        cursor: pointer;
     }
 
     #IconFiltrar{
@@ -569,15 +542,64 @@ footer p {
     
 }
 
-@media (max-width: 494px) {
-    .forms{
-        flex-wrap: wrap;
+@media (max-width: 703px) {
+    /* Navbar */
+    .navbar-brand h1 {
+        font-size: 22px;
     }
-    .inputItem{     
-        width: 36%;
+    
+     /* Index e Gráfico */
+    main {
+        margin-top: 2rem;
+        padding: 0rem 0.2rem;
     }
 
-    #Datas{
-        width: 80%;
+     /* Index */
+    .title {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
     }
+
+    .atual p{
+        display: flex;
+        align-items: center;
+    }
+
+    .atual img{
+        margin-top: 0;
+    }
+
+    .atual p::before {
+        content: "";
+        border: none;
+    }
+
+    h2::before {
+        width: 100%;
+    }
+
+    .cardbox {
+        width: 20rem;
+    }
+}
+
+@media (max-width: 550px) {
+    /* Gráfico */
+    .forms{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .input{
+        flex-wrap: wrap;
+        width: min-content;
+    }
+
+    #Limpar, #Filtrar{
+        padding: 0.4rem 0.6rem;
+    }
+
 }
