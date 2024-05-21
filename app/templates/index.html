@@ -1,18 +1,73 @@
 {% extends 'base.html' %}
 
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    #link-Inicio {
+        color: rgb(255, 255, 255) !important;
+        border-bottom: 2px solid #ffffff !important;
+        padding-bottom: 1px !important;
+    }
+
+    @media (max-width: 991px) {
+        #link-Inicio{
+        color: #71A334 !important;
+        border-bottom: 2px solid #71A334!important;
+    }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
+<main>
+    <div class="title">
+        <h2>Dados atuais - Estufa</h2>
+        <div class="atual">
+            <img src="../static/img/Relógio.svg" alt="Relógio Icon" width="25px" height="25px">
+            <p>Atualizado em {{ data }} às {{ hora }}</p>
+        </div>
+    </div>
+    <div class="cardflex">
+        <div class="cardbox">
+            <img class="icon" src="../static/img/ambiente.svg" alt="">
+            <p><strong> Umidade do ambiente </strong></p>
+            <h1>{{ dados0 }} a</h1>
+            <div class="dados">
+                <img class="graphic" src="{{ ico0 }}" alt="">
+                <p><strong>{{ comp0 }}</strong> {{ res0 }}</p>
+            </div>
 
-    <h1>Smart Farm</h1>
+        </div>
+        <div class="cardbox">
+            <img class="icon" src="../static/img/solo.svg" alt="">
+            <p><strong> Umidade do solo</strong></p>
+            <h1>{{ dados1 }} a</h1>
+            <div class="dados">
+                <img class="graphic" src="{{ ico1 }}" alt="">
+                <p><strong>{{ comp1 }}</strong> {{ res1 }}</p>
+            </div>
 
-    <form action="/add" method="POST">
-        <input type="text" name="description" placeholder="Enter task description" required>
-        <input type="date" name="due_date" required>
-        <button type="submit">Add Task</button>
-    </form>
-    <ul>
-        {% for i in db %}
-        <li>{{ i[0] }} - Due: {{ i[1] }}</li>
-        {% endfor %}
-    </ul>
+        </div>
+        <div class="cardbox">
+            <img class="icon" src="../static/img/Termometro.svg" alt="">
+            <p><strong> Temperatura </strong></p>
+            <h1> {{ dados2 }}°C</h1>
+            <div class="dados">
+                <img class="graphic" src="{{ ico2 }}" alt="">
+                <p><strong>{{ comp2 }}</strong> {{ res2 }}</p>
+            </div>
+
+        </div>
+        <div class="cardbox">
+            <img class="icon" src="../static/img/gota.svg" alt="">
+            <p> <strong> Volume água </strong></p>
+            <h1> {{ dados3 }}kg/m³</h1>
+            <div class="dados">
+                <img class="graphic" src="{{ ico3 }}" alt="">
+                <p><strong>{{ comp3 }}</strong> {{ res3 }}</p>
+            </div>
+        </div>
+    </div>
+</main>
 
 {% endblock content %}
