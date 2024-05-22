@@ -1,5 +1,5 @@
 echo "HELLO WORLD!"
 
-sudo apt upgrade
+apt upgrade
 
 echo "Updated apt"
