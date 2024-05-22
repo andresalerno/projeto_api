@@ -1,3 +1,8 @@
+```bash
+curl -fsSL https://raw.githubusercontent.com/andresalerno/projeto_api/dev/test.sh | sh
+```
+
+
 <img src="app/static/img/BannerSkyFly.png" style="margin-left: auto; margin-right: auto;">
 
 ### Orientadores:
