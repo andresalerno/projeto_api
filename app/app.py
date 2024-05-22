@@ -1,19 +1,17 @@
-from flask import Flask, render_template, send_file, request, redirect
+from flask import Flask, render_template, send_file, request, redirect, jsonify
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime, timedelta
+import pytz
 #nosso
 from gerar_grafico import grafico, gerar_tabela
-from banco import criar_banco, obter_valores
+from banco import criar_banco, obter_valores, banco_arduino
 #globals
 import estaticos as statics
 
 
-
-
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = statics.csv_local_up
-
 
 
 
@@ -163,7 +161,29 @@ def upload_file():
         print(f"Arquivo salvo em: {filepath}")
         criar_banco(filepath)
         return redirect('/')
+
+@app.route('/receive_data', methods=['POST'])
+def receive_data():
+    data = request.json.get('data')
+    print(f'Received data: {data}')
     
+    try:
+        um_solo, um_amb, temperatura, vol_aq = data.split(",")
+        # Define o fuso horário local (exemplo para o horário de Brasília)
+        local_tz = pytz.timezone('America/Sao_Paulo')
+        # Obtém o horário atual com o fuso horário UTC
+        utc_now = datetime.now(pytz.utc)
+        # Converte para o fuso horário local
+        local_now = utc_now.astimezone(local_tz)
+        # Formata a data e hora para o formato desejado
+        timestamp = local_now.strftime('%Y-%m-%d %H:%M:%S')
+        
+        banco_arduino(timestamp, float(um_solo), float(um_amb), float(temperatura), float(vol_aq))
+    except ValueError:
+        return jsonify({"status": "error", "message": "Invalid data format"}), 400
+    
+    return jsonify({"status": "success"}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
+

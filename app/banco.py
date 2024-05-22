@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, MetaData, Table
-from datetime import timedelta
+import datetime 
 import pandas as pd
 import mysql.connector
 from mysql.connector import Error
@@ -9,7 +9,18 @@ from sqlalchemy.types import DateTime
 #globals
 import estaticos as statics
 
-
+def create_connection():
+    try:
+        conn = mysql.connector.connect(
+            host=statics.host,
+            database=statics.database,
+            user=statics.username,
+            password=statics.password
+        )
+        return conn
+    except mysql.connector.Error as e:
+        print(f"Erro ao conectar ao MySQL: {e}")
+        return None
 
 
 def criar_banco(file_path):
@@ -39,7 +50,7 @@ def criar_banco(file_path):
 
 
             print(df)
-            # Manipula dados de Temperatura: String -> Float
+            # Manipula dados de Temperatura: String -> 
             df[statics.csv_temp] = df[statics.csv_temp].astype(str)
             df[statics.csv_temp] = df[statics.csv_temp].str.replace(',','.').apply(float)
 
@@ -84,20 +95,25 @@ def criar_banco(file_path):
 
     except Exception as e:
         print(f"Erro durante o processo: \n> {e}")
+ 
+def banco_arduino(timestamp, um_solo, um_amb, temperatura, vol_aq):
+    conn = create_connection()
+    if conn is None:
+        return
 
-
-
-
+    cursor = conn.cursor()
+    
+    cursor.execute("INSERT INTO Estufa VALUES (%s, %s, %s, %s, %s)",
+                   (timestamp, um_solo, um_amb, temperatura, vol_aq))
+    
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 def obter_valores(dado, pos, default_value=0):
     try:
         # Conexão com o banco de dados MySQL
-        conn = mysql.connector.connect(
-            host=statics.host,
-            database=statics.database,
-            user=statics.username,
-            password=statics.password
-        )
+        conn = create_connection()
         if conn.is_connected():
             
             # Preparar a consulta SQL para pegar o último valor da coluna especificada
