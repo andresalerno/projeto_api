@@ -17,6 +17,5 @@ def graphic():
     div_html3 = grafico("Volume Água (L)") 
     return render_template('grafico.html', plotly_div=div_html, plotly_div1=div_html1, plotly_div2=div_html2, plotly_div3=div_html3)
 
-
 if __name__ == '__main__':
     app.run(debug=True)

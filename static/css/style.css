@@ -8,7 +8,7 @@
 }
 
 body {
-    background: rgb(46, 87, 37);
+    background: rgb(0, 0, 0);
     background: linear-gradient(297deg, rgba(46, 87, 37, 1) 0%, rgba(113, 163, 52, 1) 100%)fixed;
     width: 100vw;
     min-height: 100%;
@@ -102,6 +102,26 @@ button:hover {
     height: 100%;
     cursor: pointer;
 }
+
+.dropdown-menu{
+    background-color: #ffffff !important;
+    border: 1.5px solid #193713  !important;
+}
+
+ .dropdown-menu a{
+        text-decoration: none !important;
+        color: #193713 !important;
+        font-family: "Poppins", sans-serif !important;
+        font-weight: 500 !important;
+        font-style: normal !important; 
+        font-size: 15px !important;
+        text-align: center !important;
+        padding: 0.2rem 0.6rem;
+ }
+ .dropdown-menu a:hover{
+    color: green !important;
+
+ }
 
 .nav-item{
     color: white;
@@ -272,6 +292,7 @@ h2::before {
     height: 40%;
 }
 
+
 .filtro h1 {
     font-size: 28px;
 }
@@ -298,16 +319,14 @@ input:focus {
 input[type="date"] {
     font-family: 'Poppins', sans-serif;
     width: 100%;
-}
-
-#label-SmallScreen{
-    display: none;
-}
-
-#Datas {
     border-radius: 6px;
     border-style: none;
     padding: 5px 13px;
+}
+
+
+#label-SmallScreen{
+    display: none;
 }
 
 .botoesFiltro {
@@ -370,6 +389,8 @@ footer p {
     #Importar, 
     #Baixar{
         filter: brightness(0) invert(1);
+
+
     }
 
     #link-Inicio:hover,
@@ -452,6 +473,25 @@ footer p {
         padding-right: 1rem;
         flex-grow: 0;
     }
+    .dropdown-menu{
+        background-color: #ffffff !important;
+        border: 1.5px solid #193713  !important;
+    }
+    
+     .d-flex > a{
+            text-decoration: none !important;
+            color: #193713 !important;
+            font-family: "Poppins", sans-serif !important;
+            font-weight: 500 !important;
+            font-style: normal !important; 
+            font-size: 15px !important;
+            text-align: center !important;
+            padding: 0.2rem 0.6rem;
+     }
+     .dropdown-menu a:hover{
+        color: green !important;
+    
+     }
 
      /* Gráfico */
     .filtro{

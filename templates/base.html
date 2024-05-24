@@ -16,8 +16,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg  "data-bs-theme="dark">
-    
+    <nav class="navbar navbar-expand-lg  " data-bs-theme="dark">
+
         <div class="container-fluid">
             <div class="navbar-brand me-auto" href="/">
                 <img src="../static/img/LogoSmartFarm.svg" alt="">
@@ -30,7 +30,8 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="color: #44762B;"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                        style="color: #44762B;"></button>
                 </div>
                 <div class="offcanvas-body">
                     <div class="logo-Offcanvas">
@@ -45,20 +46,34 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <form action = "/Importar" method = "POST" enctype="multipart/form-data">
+                        <form action="/Importar" method="POST" enctype="multipart/form-data">
                             <div class="InputFile btn btn-light">
-                                <input type="file"  value="Importar" name="arquivo_csv" accept=".csv" onchange="form.submit()">
+                                <input type="file" value="Importar" name="arquivo_csv" accept=".csv"
+                                    onchange="form.submit()">
                                 <label for="fileInput">
                                     <img id="Importar" src="/static/img/importar.svg" alt="" style="width: 0.8rem;">
                                     Importar
                                 </label>
                             </div>
                         </form>
-                        <form action="/Baixar" method="GET">
-                            <button type="submit" class="btn btn-light" value="Baixar">
-                                <img id="Baixar" src="/static/img/baixar.svg" alt="" style="width: 1.3rem;"> 
+                        <div class="btn-group">
+                            <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                              Baixar
+                            </button> -->
+                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-display="static" aria-expanded="false">
+                                <img id="Baixar" src="/static/img/baixar.svg" alt="" style="width: 1.3rem;">
                                 Baixar
-                        </form>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a onclick="setDownloadHref()" id="Baixar" style="color: black;">
+                                        Tudo
+                                    </a></li>
+                                <li><a onclick="setDownloadHref()" id="Baixar">
+                                        Por Período
+                                    </a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="offcanvas-header">
@@ -80,6 +95,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script>
+        function ajustarDataTermino() {
+            var inputTermino = document.getElementById('DataTermino');
+            var dataTermino = new Date(inputTermino.value);
+            dataTermino.setDate(dataTermino.getDate() + 1); // Adiciona um dia
+            inputTermino.value = dataTermino.toISOString().split('T')[0]; // Atualiza o valor do input
+        }
+
+        function setDownloadHref() {
+            var inicio = document.getElementById('DataInicio').value;
+            var termino = document.getElementById('DataTermino').value;
+            if (!inicio || !termino) {
+                alert("Selecione data de início e término.")
+                return
+            }
+            var downloadLink = document.querySelector('.botoesFiltro a');
+            downloadLink.href = `/Baixar?DataInicio=${inicio}&DataTermino=${termino}`;
+        }
+    </script>
 </body>
 
 </html>
