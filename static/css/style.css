@@ -65,7 +65,6 @@ a:hover {
 }
 
 button img {
-    margin-right: 0.2rem;
     width: 1rem;
 }
 
@@ -108,7 +107,7 @@ button:hover {
     border: 1.5px solid #193713  !important;
 }
 
- .dropdown-menu a{
+.dropdown-menu a{
         text-decoration: none !important;
         color: #193713 !important;
         font-family: "Poppins", sans-serif !important;
@@ -118,7 +117,8 @@ button:hover {
         text-align: center !important;
         padding: 0.2rem 0.6rem;
  }
- .dropdown-menu a:hover{
+
+.dropdown-menu a:hover{
     color: green !important;
 
  }
@@ -389,8 +389,6 @@ footer p {
     #Importar, 
     #Baixar{
         filter: brightness(0) invert(1);
-
-
     }
 
     #link-Inicio:hover,
@@ -423,7 +421,7 @@ footer p {
     .offcanvas-body{
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         background-color: #193713;
     }
@@ -473,12 +471,13 @@ footer p {
         padding-right: 1rem;
         flex-grow: 0;
     }
+
     .dropdown-menu{
         background-color: #ffffff !important;
         border: 1.5px solid #193713  !important;
     }
     
-     .d-flex > a{
+     .dropdown-menu > a{
             text-decoration: none !important;
             color: #193713 !important;
             font-family: "Poppins", sans-serif !important;
@@ -488,10 +487,13 @@ footer p {
             text-align: center !important;
             padding: 0.2rem 0.6rem;
      }
+     
      .dropdown-menu a:hover{
         color: green !important;
-    
      }
+
+    
+     
 
      /* Gráfico */
     .filtro{
@@ -544,6 +546,10 @@ footer p {
         border-style: none;
         background-color: #19371320;
     }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
 
     .btn span{
         display: none;
