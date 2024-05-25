@@ -124,18 +124,25 @@ def especific():
 
 @app.route('/Baixar')
 def baixar_relatorio():
+    
+    opcao = request.args.get('Opcao')
     data_inicio = request.args.get('DataInicio')
     data_termino = request.args.get('DataTermino')
     
-    # Converte as strings de data para objetos datetime
-    data_inicio = datetime.strptime(data_inicio, '%Y-%m-%d')
-    data_termino = datetime.strptime(data_termino, '%Y-%m-%d')
-
-    # Adiciona um dia ao término
-    data_termino += timedelta(days=1)
     try:
-        gerar_tabela(data_inicio, data_termino)
-        return send_file("./uploads/relatorio.xlsx", as_attachment=True)
+        if opcao == 'periodo':
+             # Converte as strings de data para objetos datetime
+            data_inicio = datetime.strptime(data_inicio, '%Y-%m-%d')
+            data_termino = datetime.strptime(data_termino, '%Y-%m-%d')
+
+            # Adiciona um dia ao término
+            data_termino += timedelta(days=1)
+            gerar_tabela(data_inicio, data_termino, opcao)
+            return send_file("./uploads/relatorio.xlsx", as_attachment=True)
+        else:
+            gerar_tabela('a', 'a', opcao)
+            return send_file("./uploads/relatorio.xlsx", as_attachment=True)
+        
     except Exception as e:
         return str(e), 500 
 

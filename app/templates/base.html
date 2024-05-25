@@ -45,19 +45,31 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <form action = "/Importar" method = "POST" enctype="multipart/form-data">
+                        <form action="/Importar" method="POST" enctype="multipart/form-data">
                             <div class="InputFile btn btn-light">
-                                <input type="file"  value="Importar" name="arquivo_csv" accept=".csv" onchange="form.submit()">
+                                <input type="file" value="Importar" name="arquivo_csv" accept=".csv"
+                                    onchange="form.submit()">
                                 <label for="fileInput">
                                     <img id="Importar" src="/static/img/importar.svg" alt="" style="width: 0.8rem;">
                                     Importar
                                 </label>
                             </div>
                         </form>
-                        <form action="/Baixar" method="GET">
-                            <button type="submit" class="btn btn-light" value="Baixar">
-                            <img id="Baixar" src="/static/img/baixar.svg" alt="" style="width: 1.3rem;"> Baixar
-                        </form>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown"
+                                data-bs-display="static" aria-expanded="false">
+                                <img id="Baixar" src="/static/img/baixar.svg" alt="" style="width: 1.3rem;">
+                                Baixar
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a onclick="setDownloadHref('completo')" id="baixarCompleto">
+                                        Completo
+                                    </a></li>
+                                <li><a onclick="setDownloadHref('periodo')" id="baixarPeriodo">
+                                        Período
+                                    </a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="offcanvas-header">
@@ -78,7 +90,34 @@
     <!--Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+
+    <script>
+        function ajustarDataTermino() {
+            var inputTermino = document.getElementById('DataTermino');
+            var dataTermino = new Date(inputTermino.value);
+            dataTermino.setDate(dataTermino.getDate() + 1); // Adiciona um dia
+            inputTermino.value = dataTermino.toISOString().split('T')[0]; // Atualiza o valor do input
+        }
+          
+        function setDownloadHref(opcao) {
+            if (opcao == 'periodo'){
+                var inicio = document.getElementById('DataInicio').value;
+                var termino = document.getElementById('DataTermino').value;
+                if (!inicio || !termino){
+                    alert("Selecione data de início e término.")
+                    return
+                }
+                var downloadLink = document.getElementById('baixarPeriodo');
+                downloadLink.href = `/Baixar?DataInicio=${inicio}&DataTermino=${termino}&Opcao=${opcao}`;
+            }
+            else{
+                var downloadLink = document.getElementById('baixarCompleto');
+                downloadLink.href = `/Baixar?Opcao=${opcao}`;
+            }
+        }
+    </script>
 </body>
 
 </html>

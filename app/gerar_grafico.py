@@ -97,7 +97,7 @@ def grafico(dado, data_inicio=None, data_termino=None):
 
 
 
-def gerar_tabela(data_inicio, data_termino):
+def gerar_tabela(data_inicio, data_termino, opcao):
     try:
         # Conexão com o banco de dados MySQL
         conn = mysql.connector.connect(
@@ -108,34 +108,63 @@ def gerar_tabela(data_inicio, data_termino):
         )
         if conn.is_connected():
             print(statics.txt_sql_conn_init)
-            # Carregar dados diretamente em um DataFrame do pandas
-            query = f"SELECT * FROM `{statics.table}` WHERE `{statics.db_est_data_hora}` BETWEEN %s AND %s"
-            data = pd.read_sql(query, conn, params=[data_inicio, data_termino])
-            print(data)
+            if opcao == 'periodo':
+                # Carregar dados diretamente em um DataFrame do pandas
+                query = f"SELECT * FROM `{statics.table}` WHERE `{statics.db_est_data_hora}` BETWEEN %s AND %s"
+                data = pd.read_sql(query, conn, params=[data_inicio, data_termino])
+                print(data)
 
-            data[statics.csv_data] = data[statics.db_est_data_hora].apply(str).str.slice(stop=10)
-            data[statics.csv_hora] = data[statics.db_est_data_hora].apply(str).str.slice(start=11, stop=16)
-            data = data.drop(columns=[statics.db_est_data_hora])
+                data[statics.csv_data] = data[statics.db_est_data_hora].apply(str).str.slice(stop=10)
+                data[statics.csv_hora] = data[statics.db_est_data_hora].apply(str).str.slice(start=11, stop=16)
+                data = data.drop(columns=[statics.db_est_data_hora])
 
-            data = data.rename(columns={
-                    statics.db_est_um_solo : statics.csv_um_solo, 
-                    statics.db_est_um_amb : statics.csv_um_amb,
-                    statics.db_est_temp : statics.csv_temp,
-                    statics.db_est_vol_aq : statics.csv_vol_aq 
-                })
+                data = data.rename(columns={
+                        statics.db_est_um_solo : statics.csv_um_solo, 
+                        statics.db_est_um_amb : statics.csv_um_amb,
+                        statics.db_est_temp : statics.csv_temp,
+                        statics.db_est_vol_aq : statics.csv_vol_aq 
+                    })
 
-            data = data[[
-                statics.csv_data,
-                statics.csv_hora,
-                statics.csv_um_solo, 
-                statics.csv_um_amb,
-                statics.csv_temp,
-                statics.csv_vol_aq 
-                ]]
+                data = data[[
+                    statics.csv_data,
+                    statics.csv_hora,
+                    statics.csv_um_solo, 
+                    statics.csv_um_amb,
+                    statics.csv_temp,
+                    statics.csv_vol_aq 
+                    ]]
 
-            print(data)
-            # Geração do arquivo Excel sem incluir 'Data_Hora' como índice
-            data.to_excel("./uploads/relatorio.xlsx", index=False)     
+                print(data)
+                # Geração do arquivo Excel sem incluir 'Data_Hora' como índice
+                data.to_excel("./uploads/relatorio.xlsx", index=False)     
+            else:
+                query = f"SELECT * FROM `{statics.table}`"
+                data = pd.read_sql(query, conn)
+                print(data)
+
+                data[statics.csv_data] = data[statics.db_est_data_hora].apply(str).str.slice(stop=10)
+                data[statics.csv_hora] = data[statics.db_est_data_hora].apply(str).str.slice(start=11, stop=16)
+                data = data.drop(columns=[statics.db_est_data_hora])
+
+                data = data.rename(columns={
+                        statics.db_est_um_solo : statics.csv_um_solo, 
+                        statics.db_est_um_amb : statics.csv_um_amb,
+                        statics.db_est_temp : statics.csv_temp,
+                        statics.db_est_vol_aq : statics.csv_vol_aq 
+                    })
+
+                data = data[[
+                    statics.csv_data,
+                    statics.csv_hora,
+                    statics.csv_um_solo, 
+                    statics.csv_um_amb,
+                    statics.csv_temp,
+                    statics.csv_vol_aq 
+                    ]]
+
+                print(data)
+                # Geração do arquivo Excel sem incluir 'Data_Hora' como índice
+                data.to_excel("./uploads/relatorio.xlsx", index=False)
             
     except Error as e:
         print(f"{statics.txt_err_sql_conn}: \n> {e}")
