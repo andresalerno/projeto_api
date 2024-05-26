@@ -12,4 +12,8 @@ echo "Instaled python"
 
 apt install docker.io -y
 
+apt install docker-compose -y
+
+apt install docker-buildx
+
 echo "Installed docker"
