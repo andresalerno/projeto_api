@@ -10,6 +10,6 @@ apt install python3-pip -y
 
 echo "Instaled python"
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+apt install docker.io
 
 echo "Installed docker"
