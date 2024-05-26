@@ -14,6 +14,6 @@ apt install docker.io -y
 
 apt install docker-compose -y
 
-apt install docker-buildx
+apt install docker-buildx -y
 
 echo "Installed docker"
