@@ -10,6 +10,6 @@ apt install python3-pip -y
 
 echo "Instaled python"
 
-apt install docker.io
+apt install docker.io -y
 
 echo "Installed docker"
