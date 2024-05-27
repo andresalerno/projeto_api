@@ -103,11 +103,16 @@
           
         function setDownloadHref(opcao) {
             if (opcao == 'periodo'){
+                if (!window.location.href.endsWith('Graficos')){
+                    url = (window.location.href) + `\Graficos`
+                    window.location = url
+                    alert("Selecione data de início e término.")
+                }
                 var inicio = document.getElementById('DataInicio').value;
                 var termino = document.getElementById('DataTermino').value;
                 if (!inicio || !termino){
                     alert("Selecione data de início e término.")
-                    return
+                    return 
                 }
                 var downloadLink = document.getElementById('baixarPeriodo');
                 downloadLink.href = `/Baixar?DataInicio=${inicio}&DataTermino=${termino}&Opcao=${opcao}`;
